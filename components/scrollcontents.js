@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import {
   Text,
-  Image
+  Image,
+  Platform,
+  View,
+  ScrollView
 } from 'react-native';
 import {
   Header,
@@ -14,9 +17,15 @@ import {
 } from 'native-base';
 
 import InfiniteScroll from './infinitescroll';
-import MattTest from './matttest';
 
 import Dataset from 'impagination';
+
+var api = {
+  getArticles(){
+    var url = 'https://desolate-oasis-97513.herokuapp.com/scrollios/1'
+    return fetch(url).then((response) => response.json());
+  }
+};
 
 export default class ScrollContents extends Component {
   constructor(props) {
@@ -25,6 +34,7 @@ export default class ScrollContents extends Component {
     this.state = {
       dataset: null,
       datasetState: null,
+      scroll: []
     };
   }
 
@@ -40,7 +50,7 @@ export default class ScrollContents extends Component {
 
       // Where to fetch the data from.
       fetch(pageOffset, pageSize, stats) {
-        return fetch(`https://serene-beach-38011.herokuapp.com/api/faker?page=${pageOffset + 1}&per_page=${pageSize}`)
+        return fetch(`https://desolate-oasis-97513.herokuapp.com/scrollios/1`)
           .then(response => response.json())
           .catch((error) => {
             console.error(error);
@@ -55,6 +65,11 @@ export default class ScrollContents extends Component {
 
   componentWillMount() {
     this.setupImpagination();
+    api.getArticles().then((response) => {
+      this.setState({
+        scroll: response
+      })
+    })
   }
 
   renderItem() {
@@ -82,8 +97,6 @@ export default class ScrollContents extends Component {
             <Title>Ruby's Pooper-Looper!</Title>
           </Header>
           <Content scrollEventThrottle={300} onScroll={this.setCurrentReadOffset} removeClippedSubviews={true}>
-
-            <MattTest/>
 
             <Card style={{margin: 10}}>
               <CardItem>
@@ -130,8 +143,6 @@ export default class ScrollContents extends Component {
     );
   }
 }
-
-
 
 // import React, { Component } from 'react';
 // import { StackNavigator } from 'react-navigation';

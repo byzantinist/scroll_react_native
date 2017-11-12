@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import {
   Text,
   Image,
+  View,
+  StyleSheet
 } from 'react-native';
 import {
   Card,
@@ -19,15 +21,32 @@ export default class InfiniteScroll extends Component {
     return (
       <Card style={{margin: 10}}>
         <CardItem>
-          <Text>{this.recordData.title}</Text>
+        <Text style={styles.title}>{this.recordData.title}</Text>
         </CardItem>
         <CardItem>
-          <Image style={{ width: 300, height: 300 }} source={{uri: this.recordData.image}} />
-        </CardItem>
-        <CardItem>
-          <Text>{this.recordData.description}</Text>
+
+          <View>{this.recordData.body.map((para) =>
+            <View><Text style={styles.paragraph}>{para}</Text></View>)}</View>
+
         </CardItem>
       </Card>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  },
+  title: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+  },
+  paragraph: {
+    margin: 10,
+  }
+});

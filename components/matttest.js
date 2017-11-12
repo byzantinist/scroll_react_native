@@ -3,7 +3,8 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View
+  View,
+  ScrollView
 } from 'react-native';
 
 var api = {
@@ -37,7 +38,7 @@ export default class MattTest extends Component<{}> {
         <View><Text style={styles.paragraph}>{para}</Text></View>)}</View>
       </View>)
     console.log(thisScroll);
-    return (<View>{thisScroll}</View>);
+    return (<ScrollView>{thisScroll}</ScrollView>);
   }
 }
 

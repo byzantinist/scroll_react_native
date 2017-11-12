@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { StackNavigator } from 'react-navigation';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
+import { Container } from 'native-base';
 
 import HomeScreen from './components/homescreen';
 import ScrollScreen from './components/scrollscreen';

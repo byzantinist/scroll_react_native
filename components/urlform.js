@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AsyncStorage, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { AsyncStorage, StyleSheet, Text, TextInput, TouchableOpacity, View, Alert } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import { Button } from 'react-native-elements';
 
@@ -32,6 +32,10 @@ export default class UrlForm extends Component {
             <Text style={styles.buttonText}>Submit Article</Text>
           </TouchableOpacity>
 
+          <TouchableOpacity style={styles.button} onPress={this.clearArticles}>
+            <Text style={styles.buttonText}>Clear All Articles</Text>
+          </TouchableOpacity>
+
            <TouchableOpacity style={styles.button} onPress={() => navigate('Scroll')}>
             <Text style={styles.buttonText}>Start SkRrrrrollin</Text>
           </TouchableOpacity>
@@ -59,6 +63,37 @@ export default class UrlForm extends Component {
         alert('Sucessfully added Article');
       })
       .done();
+  }
+
+  clearArticles = () => {
+    Alert.alert(
+      'Are you sure you want to clear all articles?',
+      'Please confirm!',
+      [
+        {text: 'Clear All Articles', onPress: () => {
+          fetch('https://desolate-oasis-97513.herokuapp.com/scrollios/1', {
+              method: 'DELETE',
+              headers: {
+                'Accept' : 'application/json',
+                'Content-Type': 'application/json',
+              },
+          })
+          .then((response) => response)
+          .then((responseData) => {
+            console.log(responseData);
+            Alert.alert(
+              'Success!',
+              'All articles have been cleared!',
+              [{Text: 'OK'}],
+              { cancelable: false }
+            )
+          })
+          .done();
+        }},
+        {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'}
+      ],
+      { cancelable: false }
+    )
   }
 }
 

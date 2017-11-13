@@ -35,8 +35,6 @@ export default class ListArticles extends Component {
 
   render() {
     const { navigate } = this.props.navigation;
-    console.log("TEST!");
-    console.log(this.state.scroll);
     let thisScroll = this.state.scroll.map((article) =>
       <Card style={{margin: 10}}>
         <CardItem>
@@ -109,24 +107,26 @@ export default class ListArticles extends Component {
       'Please confirm!',
       [
         {text: 'Delete This Article', onPress: () => {
-          alert(this.state.deletion_id);
-          // fetch('https://desolate-oasis-97513.herokuapp.com/scrollios/1', {
-          //     method: 'DELETE',
-          //     headers: {
-          //       'Accept' : 'application/json',
-          //       'Content-Type': 'application/json',
-          //     },
-          // })
-          // .then((response) => {
-          //   console.log(response.status);
-          //   Alert.alert(
-          //     'Success!',
-          //     'This article has been deleted!',
-          //     [{Text: 'OK'}],
-          //     { cancelable: false }
-          //   )
-          // })
-          // .done();
+          var deletion_url = 'https://desolate-oasis-97513.herokuapp.com/scrollios/1/articles/' + this.state.deletion_id;
+          fetch(deletion_url, {
+              method: 'DELETE',
+              headers: {
+                'Accept' : 'application/json',
+                'Content-Type': 'application/json',
+              },
+          })
+          .then((response) => {
+            console.log(response.status);
+            Alert.alert(
+              'Success!',
+              'This article has been deleted!',
+              [{Text: 'OK', onPress: () => {
+                this.componentWillMount()
+              }}],
+              { cancelable: false }
+            )
+          })
+          .done();
         }},
         {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'}
       ],

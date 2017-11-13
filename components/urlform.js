@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { AsyncStorage, StyleSheet, Text, TextInput, TouchableOpacity, View, Alert } from 'react-native';
 import { StackNavigator } from 'react-navigation';
-import { Button } from 'react-native-elements';
 
 export default class UrlForm extends Component {
   static navigationOptions = {
@@ -36,8 +35,8 @@ export default class UrlForm extends Component {
             <Text style={styles.buttonText}>Clear All Articles</Text>
           </TouchableOpacity>
 
-           <TouchableOpacity style={styles.button} onPress={() => navigate('Scroll')}>
-            <Text style={styles.buttonText}>Start SkRrrrrollin</Text>
+          <TouchableOpacity style={styles.button} onPress={() => navigate('ListArticles')}>
+            <Text style={styles.buttonText}>View List</Text>
           </TouchableOpacity>
         </View>
       </View>

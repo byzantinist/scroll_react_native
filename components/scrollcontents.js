@@ -77,8 +77,7 @@ export default class ScrollContents extends Component {
       if (!record.isSettled) {
         return <Spinner key={Math.random()}/>;
       }
-
-      return <InfiniteScroll record={record} key={record.content.id} />;
+      return <InfiniteScroll record={record} key={record.index} />;
     });
   }
 

@@ -66,7 +66,12 @@ export default class UrlForm extends Component {
       )
       .then((responseData) => {
           if (statusCode === 201) {
-            alert('This article was added to your reading list.');
+            Alert.alert(
+              'Success!',
+              'This article has been added to your reading list!',
+              [{Text: 'OK'}],
+              { cancelable: false }
+            );
           } else if (statusCode === 422) {
             alert(responseData)
           } else {

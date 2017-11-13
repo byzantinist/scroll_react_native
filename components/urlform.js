@@ -27,7 +27,7 @@ export default class UrlForm extends Component {
         <View style={styles.urlform}>
           <Text style={styles.header}>Copy & Paste Article URL</Text>
 
-          <TextInput style={styles.textinput} placeholder="Article URL" onChangeText={ (url) => this.setState({url}) } />
+          <TextInput ref="UrlBox" style={styles.textinput} placeholder="Article URL" onChangeText={ (url) => this.setState({url}) } />
           <TouchableOpacity style={styles.button} onPress={this.postArticle}>
             <Text style={styles.buttonText}>Submit Article</Text>
           </TouchableOpacity>
@@ -41,6 +41,7 @@ export default class UrlForm extends Component {
   }
 
   postArticle = () => {
+      this.refs.UrlBox.setNativeProps({text: ''});
       fetch('https://desolate-oasis-97513.herokuapp.com/scrollios/1/articles', {
         method: 'POST',
         headers: {

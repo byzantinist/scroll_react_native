@@ -41,7 +41,6 @@ export default class ListArticles extends Component {
           <Text>{article.title}</Text>
        </CardItem>
       </Card>)
-    console.log(thisScroll);
 
     return (
       <View style={styles.container}>

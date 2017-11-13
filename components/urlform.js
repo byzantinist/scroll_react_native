@@ -60,7 +60,12 @@ export default class UrlForm extends Component {
       .then((response) => response.json())
       .then((responseData) => {
         console.log(responseData);
-        alert('Sucessfully added Article');
+        Alert.alert(
+              'Success!',
+              'This article has been added!',
+              [{Text: 'OK'}],
+              { cancelable: false }
+            );
       })
       .done();
   }

@@ -24,10 +24,11 @@ export default class InfiniteScroll extends Component {
         <Text style={styles.title}>{this.recordData.title}</Text>
         </CardItem>
         <CardItem>
-
           <View>{this.recordData.body.map((para) =>
             <View><Text style={styles.paragraph}>{para}</Text></View>)}</View>
-
+        </CardItem>
+        <CardItem>
+          <Image style={{ width: 300, height: 300 }} source={{uri: "https://i.ytimg.com/vi/b6dT4kyVUuY/maxresdefault.jpg"}} />
         </CardItem>
       </Card>
     );

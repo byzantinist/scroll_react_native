@@ -20,7 +20,8 @@ export default class ListArticles extends Component {
   constructor(props){
     super(props);
     this.state = {
-      scroll: []
+      scroll: [],
+      deletion_id: 0
     }
   }
 
@@ -34,11 +35,19 @@ export default class ListArticles extends Component {
 
   render() {
     const { navigate } = this.props.navigation;
-
     let thisScroll = this.state.scroll.map((article) =>
       <Card style={{margin: 10}}>
         <CardItem>
           <Text>{article.title}</Text>
+       </CardItem>
+       <CardItem>
+        <TouchableOpacity style={styles.button} onPress={() => {
+            this.setState({deletion_id: article.id});
+            this.deleteArticle()
+          }
+          }>
+          <Text style={styles.buttonText}>Delete</Text>
+        </TouchableOpacity>
        </CardItem>
       </Card>)
 
@@ -49,11 +58,11 @@ export default class ListArticles extends Component {
             <Text style={styles.buttonText}>Start SkRrrrrollin</Text>
           </TouchableOpacity>
 
-          <ScrollView>{thisScroll}</ScrollView>
-
           <TouchableOpacity style={styles.button} onPress={this.clearArticles}>
             <Text style={styles.buttonText}>Clear All Articles</Text>
           </TouchableOpacity>
+
+          <ScrollView>{thisScroll}</ScrollView>
 
         </View>
       </View>
@@ -78,7 +87,42 @@ export default class ListArticles extends Component {
             Alert.alert(
               'Success!',
               'All articles have been cleared!',
-              [{Text: 'OK'}],
+              [{Text: 'OK', onPress: () => {
+                this.setState({scroll: []})
+              }}],
+              { cancelable: false }
+            )
+          })
+          .done();
+        }},
+        {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'}
+      ],
+      { cancelable: false }
+    )
+  }
+
+  deleteArticle = () => {
+    Alert.alert(
+      'Are you sure you want to delete this article?',
+      'Please confirm!',
+      [
+        {text: 'Delete This Article', onPress: () => {
+          var deletion_url = 'https://desolate-oasis-97513.herokuapp.com/scrollios/1/articles/' + this.state.deletion_id;
+          fetch(deletion_url, {
+              method: 'DELETE',
+              headers: {
+                'Accept' : 'application/json',
+                'Content-Type': 'application/json',
+              },
+          })
+          .then((response) => {
+            console.log(response.status);
+            Alert.alert(
+              'Success!',
+              'This article has been deleted!',
+              [{Text: 'OK', onPress: () => {
+                this.componentWillMount()
+              }}],
               { cancelable: false }
             )
           })

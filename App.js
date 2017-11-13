@@ -3,7 +3,6 @@ import { StackNavigator } from 'react-navigation';
 import { StyleSheet, View, Text } from 'react-native';
 import { Container } from 'native-base';
 
-import HomeScreen from './components/homescreen';
 import ScrollScreen from './components/scrollscreen';
 import ScrollContents from './components/scrollcontents';
 import MattTest from './components/matttest';

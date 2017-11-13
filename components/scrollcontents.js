@@ -20,13 +20,6 @@ import InfiniteScroll from './infinitescroll';
 
 import Dataset from 'impagination';
 
-var api = {
-  getArticles(){
-    var url = 'https://desolate-oasis-97513.herokuapp.com/scrollios/1'
-    return fetch(url).then((response) => response.json());
-  }
-};
-
 export default class ScrollContents extends Component {
   constructor(props) {
     super(props);
@@ -34,7 +27,6 @@ export default class ScrollContents extends Component {
     this.state = {
       dataset: null,
       datasetState: null,
-      scroll: []
     };
   }
 
@@ -65,11 +57,6 @@ export default class ScrollContents extends Component {
 
   componentWillMount() {
     this.setupImpagination();
-    api.getArticles().then((response) => {
-      this.setState({
-        scroll: response
-      })
-    })
   }
 
   renderItem() {
@@ -77,7 +64,7 @@ export default class ScrollContents extends Component {
       if (!record.isSettled) {
         return <Spinner key={Math.random()}/>;
       }
-      return <InfiniteScroll record={record} key={record.index} />;
+      return <InfiniteScroll record={record} key={record.index}/>;
     });
   }
 
@@ -142,76 +129,3 @@ export default class ScrollContents extends Component {
     );
   }
 }
-
-// import React, { Component } from 'react';
-// import { StackNavigator } from 'react-navigation';
-// import { Button }  from 'react-native-elements'
-// import {StyleSheet, Text, View, AppRegistry, Form } from 'react-native';
-
-
-// class HomeScreen extends Component {
-//   static navigationOptions = {
-//     title: 'Home',
-//     headerStyle:{
-//       backgroundColor: 'rgb(171, 172, 173)'
-//     }
-//   };
-//   render() {
-
-//     const { navigate } = this.props.navigation;
-//     return (
-//       <View style={styles.container}>
-
-//         <Text>Start Yur Skroll</Text>
-//         <Button
-//           onPress={() => navigate('Scroll')}
-//           title="Start SkRrrrrollin"
-//         />
-//       </View>
-//     );
-//   }
-// }
-
-// class ScrollScreen extends Component {
-//   static navigationOptions = {
-//     title: 'Scroll',
-//     headerStyle:{
-//       backgroundColor: 'rgb(171, 172, 173)'
-//     }
-//   };
-//   render() {
-//     const { navigate } = this.props.navigation
-//     return (
-//       <View style={styles.container}>
-//         <Text>We DID IT!</Text>
-//         <Button
-//           onPress={() => navigate('Home')}
-//           title="Home"
-//         />
-
-//       </View>
-//     );
-//   }
-// }
-
-
-// export default class App extends React.Component {
-//   render() {
-//     return <ScrollApp/>;
-//   }
-// }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: "pink",
-//     alignItems: 'center',
-//     justifyContent: 'center'
-//   }
-// });
-
-// export const ScrollApp = StackNavigator({
-//   Home: { screen: HomeScreen },
-//   Scroll: { screen: ScrollScreen },
-// });
-

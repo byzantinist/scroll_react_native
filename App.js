@@ -7,6 +7,7 @@ import HomeScreen from './components/homescreen';
 import ScrollScreen from './components/scrollscreen';
 import ScrollContents from './components/scrollcontents';
 import MattTest from './components/matttest';
+import UrlForm from './components/urlform';
 
 export default class App extends React.Component {
   render() {
@@ -26,6 +27,6 @@ const styles = StyleSheet.create({
 });
 
 export const ScrollApp = StackNavigator({
-  Home: { screen: HomeScreen },
+  UrlForm: { screen: UrlForm },
   Scroll: { screen: ScrollScreen }
 });

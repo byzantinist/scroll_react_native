@@ -1,3 +1,5 @@
+// DEPRECATED. Relevant content is already copied into ScrollContents and/or InfiniteScroll
+
 import React, { Component } from 'react';
 import {
   Platform,

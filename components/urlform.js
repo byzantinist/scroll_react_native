@@ -62,7 +62,7 @@ export default class UrlForm extends Component {
         console.log(responseData);
         Alert.alert(
               'Success!',
-              'This article has been added!',
+              'This article has been added to your reading list!',
               [{Text: 'OK'}],
               { cancelable: false }
             );

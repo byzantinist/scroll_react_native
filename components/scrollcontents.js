@@ -94,7 +94,7 @@ export default class ScrollContents extends Component {
     return (
       <Container>
           <Header>
-            <Title>Ruby's Pooper-Looper!</Title>
+            <Title>Slow Ur Scroll</Title>
           </Header>
           <Content scrollEventThrottle={300} onScroll={this.setCurrentReadOffset} removeClippedSubviews={true}>
 

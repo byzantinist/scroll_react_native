@@ -1,7 +1,11 @@
+// DEPRECATED. Replaced by UrlForm
+
 import React, { Component } from 'react';
 import { StackNavigator } from 'react-navigation';
 import { Button } from 'react-native-elements';
 import { StyleSheet, Text, View } from 'react-native';
+
+import UrlForm from './urlform';
 
 export default class HomeScreen extends Component {
   static navigationOptions = {

@@ -20,7 +20,8 @@ export default class ListArticles extends Component {
   constructor(props){
     super(props);
     this.state = {
-      scroll: []
+      scroll: [],
+      deletion_id: 0
     }
   }
 
@@ -34,11 +35,21 @@ export default class ListArticles extends Component {
 
   render() {
     const { navigate } = this.props.navigation;
-
+    console.log("TEST!");
+    console.log(this.state.scroll);
     let thisScroll = this.state.scroll.map((article) =>
       <Card style={{margin: 10}}>
         <CardItem>
           <Text>{article.title}</Text>
+       </CardItem>
+       <CardItem>
+        <TouchableOpacity style={styles.button} onPress={() => {
+            this.setState({deletion_id: article.id});
+            this.deleteArticle()
+          }
+          }>
+          <Text style={styles.buttonText}>Delete</Text>
+        </TouchableOpacity>
        </CardItem>
       </Card>)
 
@@ -83,6 +94,37 @@ export default class ListArticles extends Component {
             )
           })
           .done();
+        }},
+        {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'}
+      ],
+      { cancelable: false }
+    )
+  }
+
+  deleteArticle = () => {
+    Alert.alert(
+      'Are you sure you want to delete this article?',
+      'Please confirm!',
+      [
+        {text: 'Delete This Article', onPress: () => {
+          alert(this.state.deletion_id);
+          // fetch('https://desolate-oasis-97513.herokuapp.com/scrollios/1', {
+          //     method: 'DELETE',
+          //     headers: {
+          //       'Accept' : 'application/json',
+          //       'Content-Type': 'application/json',
+          //     },
+          // })
+          // .then((response) => {
+          //   console.log(response.status);
+          //   Alert.alert(
+          //     'Success!',
+          //     'This article has been deleted!',
+          //     [{Text: 'OK'}],
+          //     { cancelable: false }
+          //   )
+          // })
+          // .done();
         }},
         {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'}
       ],

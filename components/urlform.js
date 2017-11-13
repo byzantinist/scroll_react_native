@@ -23,17 +23,19 @@ export default class UrlForm extends Component {
   render() {
     const { navigate } = this.props.navigation;
     return (
-      <View style={styles.urlform}>
-        <Text style={styles.header}>Copy & Paste Article URL</Text>
+      <View style={styles.container}>
+        <View style={styles.urlform}>
+          <Text style={styles.header}>Copy & Paste Article URL</Text>
 
-        <TextInput style={styles.textinput} placeholder="Article URL" onChangeText={ (url) => this.setState({url}) } />
-        <TouchableOpacity style={styles.button} onPress={this.postArticle}>
-          <Text style={styles.buttonText}>Submit Article</Text>
-        </TouchableOpacity>
+          <TextInput style={styles.textinput} placeholder="Article URL" onChangeText={ (url) => this.setState({url}) } />
+          <TouchableOpacity style={styles.button} onPress={this.postArticle}>
+            <Text style={styles.buttonText}>Submit Article</Text>
+          </TouchableOpacity>
 
-         <Button style={styles.button} onPress={() => navigate('Scroll')}
-          title="Start SkRrrrrollin">
-        </Button>
+           <TouchableOpacity style={styles.button} onPress={() => navigate('Scroll')}>
+            <Text style={styles.buttonText}>Start SkRrrrrollin</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }
@@ -60,6 +62,13 @@ export default class UrlForm extends Component {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: '#36485f',
+    paddingLeft: 60,
+    paddingRight: 60,
+  },
   urlform: {
     alignSelf: 'stretch',
     borderBottomColor: '#199187',

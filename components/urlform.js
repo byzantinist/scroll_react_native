@@ -71,18 +71,14 @@ export default class UrlForm extends Component {
       'Please confirm!',
       [
         {text: 'Clear All Articles', onPress: () => {
-          fetch('https://desolate-oasis-97513.herokuapp.com/scrollios/1/articles', {
+          fetch('https://desolate-oasis-97513.herokuapp.com/scrollios/1', {
               method: 'DELETE',
               headers: {
                 'Accept' : 'application/json',
                 'Content-Type': 'application/json',
               },
-              // this sends values of states which we declared above
-              body: JSON.stringify({
-                url: this.state.url,
-              })
           })
-          .then((response) => response.json())
+          .then((response) => response)
           .then((responseData) => {
             console.log(responseData);
             Alert.alert(

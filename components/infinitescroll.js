@@ -21,7 +21,7 @@ export default class InfiniteScroll extends Component {
     return (
       <Card style={{margin: 10}}>
         <CardItem>
-        <Text style={styles.title}>{this.recordData.title}</Text>
+          <Text style={styles.title}>{this.recordData.title}</Text>
         </CardItem>
         <CardItem>
           <View>{this.recordData.body.map((para) =>

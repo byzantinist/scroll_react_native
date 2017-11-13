@@ -1,16 +1,48 @@
 import React, { Component } from 'react';
 import { StackNavigator } from 'react-navigation';
-import { StyleSheet, Text, View, TouchableOpacity, Alert } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Alert, ScrollView } from 'react-native';
+import { Card, CardItem } from 'native-base';
 
 import ScrollContents from './scrollcontents';
 
+var api = {
+  getArticles(){
+    var url = 'https://desolate-oasis-97513.herokuapp.com/scrollios/1'
+    return fetch(url).then((response) => response.json());
+  }
+};
+
 export default class ListArticles extends Component {
   static navigationOptions = {
-    title: 'ListArticles'
+    title: 'List Articles'
   };
+
+  constructor(props){
+    super(props);
+    this.state = {
+      scroll: []
+    }
+  }
+
+  componentWillMount(){
+    api.getArticles().then((response) => {
+      this.setState({
+        scroll: response
+      })
+    })
+  }
 
   render() {
     const { navigate } = this.props.navigation;
+
+    let thisScroll = this.state.scroll.map((article) =>
+      <Card style={{margin: 10}}>
+        <CardItem>
+          <Text>{article.title}</Text>
+       </CardItem>
+      </Card>)
+    console.log(thisScroll);
+
     return (
       <View style={styles.container}>
         <View style={styles.urlform}>
@@ -18,9 +50,12 @@ export default class ListArticles extends Component {
             <Text style={styles.buttonText}>Start SkRrrrrollin</Text>
           </TouchableOpacity>
 
+          <ScrollView>{thisScroll}</ScrollView>
+
           <TouchableOpacity style={styles.button} onPress={this.clearArticles}>
             <Text style={styles.buttonText}>Clear All Articles</Text>
           </TouchableOpacity>
+
         </View>
       </View>
      );

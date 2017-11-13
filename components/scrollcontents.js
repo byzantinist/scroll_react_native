@@ -20,13 +20,6 @@ import InfiniteScroll from './infinitescroll';
 
 import Dataset from 'impagination';
 
-var api = {
-  getArticles(){
-    var url = 'https://desolate-oasis-97513.herokuapp.com/scrollios/1'
-    return fetch(url).then((response) => response.json());
-  }
-};
-
 export default class ScrollContents extends Component {
   constructor(props) {
     super(props);
@@ -34,7 +27,6 @@ export default class ScrollContents extends Component {
     this.state = {
       dataset: null,
       datasetState: null,
-      scroll: []
     };
   }
 
@@ -65,11 +57,6 @@ export default class ScrollContents extends Component {
 
   componentWillMount() {
     this.setupImpagination();
-    api.getArticles().then((response) => {
-      this.setState({
-        scroll: response
-      })
-    })
   }
 
   renderItem() {

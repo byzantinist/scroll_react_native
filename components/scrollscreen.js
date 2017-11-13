@@ -5,7 +5,7 @@ import ScrollContents from './scrollcontents';
 
 export default class ScrollScreen extends Component {
   static navigationOptions = {
-    title: 'Scroll'
+    title: 'Scroll Articles'
   };
 
   render() {

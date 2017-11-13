@@ -60,11 +60,11 @@ export default class ListArticles extends Component {
             <Text style={styles.buttonText}>Start SkRrrrrollin</Text>
           </TouchableOpacity>
 
-          <ScrollView>{thisScroll}</ScrollView>
-
           <TouchableOpacity style={styles.button} onPress={this.clearArticles}>
             <Text style={styles.buttonText}>Clear All Articles</Text>
           </TouchableOpacity>
+
+          <ScrollView>{thisScroll}</ScrollView>
 
         </View>
       </View>
@@ -89,7 +89,9 @@ export default class ListArticles extends Component {
             Alert.alert(
               'Success!',
               'All articles have been cleared!',
-              [{Text: 'OK'}],
+              [{Text: 'OK', onPress: () => {
+                this.setState({scroll: []})
+              }}],
               { cancelable: false }
             )
           })

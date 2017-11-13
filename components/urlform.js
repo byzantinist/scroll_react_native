@@ -45,7 +45,9 @@ export default class UrlForm extends Component {
   }
 
   postArticle = () => {
+      var statusCode;
       this.refs.UrlBox.setNativeProps({text: ''});
+      this.setState({url: ''})
       fetch('https://desolate-oasis-97513.herokuapp.com/scrollios/1/articles', {
         method: 'POST',
         headers: {
@@ -57,10 +59,19 @@ export default class UrlForm extends Component {
           url: this.state.url,
         })
       })
-      .then((response) => response.json())
+      .then((response) => (
+        statusCode = response.status,
+        console.log(statusCode),
+        response.json())
+      )
       .then((responseData) => {
-        console.log(responseData);
-        alert('Sucessfully added Article');
+          if (statusCode === 201) {
+            alert('This article was added to your reading list.');
+          } else if (statusCode === 422) {
+            alert(responseData)
+          } else {
+            alert('Uh. Something weird happened. Maybe reload the app?')
+          }
       })
       .done();
   }
@@ -78,9 +89,8 @@ export default class UrlForm extends Component {
                 'Content-Type': 'application/json',
               },
           })
-          .then((response) => response)
-          .then((responseData) => {
-            console.log(responseData);
+          .then((response) => {
+            console.log(response.status);
             Alert.alert(
               'Success!',
               'All articles have been cleared!',

@@ -22,6 +22,10 @@ export default class InfiniteScroll extends Component {
           <Text style={styles.title}>{this.recordData.title}</Text>
         </CardItem>
         <CardItem>
+    <Text> {console.log(this.recordData.height)}</Text>
+          <Text style={styles.title}>{this.recordData.height}</Text>
+        </CardItem>
+        <CardItem>
           <View>{this.recordData.body.map((para, index) =>
             <View key={index}>
               <Text style={styles.paragraph}>{para}</Text>
@@ -49,10 +53,10 @@ const styles = StyleSheet.create({
   },
   paragraph: {
     margin: 10,
-    fontSize: 16,
+    fontSize: 21,
   },
   title: {
-    fontSize: 24,
+    fontSize: 28,
     textAlign: 'center',
     margin: 10,
   },

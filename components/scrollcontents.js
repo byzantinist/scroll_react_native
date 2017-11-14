@@ -196,11 +196,11 @@ const styles = StyleSheet.create({
     backgroundColor: 'white'
   },
   textStyle: {
-    fontSize: 16,
+    fontSize: 21,
   },
   title: {
     padding: 5,
-    fontSize: 20,
+    fontSize: 28,
     textAlign: 'center',
     margin: 10,
   }

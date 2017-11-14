@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { AsyncStorage, StyleSheet, Text, TextInput, TouchableOpacity, View, Alert } from 'react-native';
+import { Alert, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 export default class UrlForm extends Component {
   static navigationOptions = {
-    title: 'Home'
+    title: 'Add Articles'
   };
 
   constructor(props) {
@@ -24,9 +24,10 @@ export default class UrlForm extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.urlform}>
-          <Text style={styles.header}>Copy & Paste Article URL</Text>
+          <Text style={styles.title}>Ruby's Article Viewer</Text>
+          <Text style={styles.header}>Copy & Paste Article URL:</Text>
 
-          <TextInput ref="UrlBox" style={styles.textinput} placeholder="Article URL" onChangeText={ (url) => this.setState({url}) } />
+          <TextInput ref="UrlBox" style={styles.textinput} placeholder="(Enter the Article URL Here)" placeholderTextColor="#fff"onChangeText={ (url) => this.setState({url}) } />
           <TouchableOpacity style={styles.button} onPress={this.postArticle}>
             <Text style={styles.buttonText}>Submit Article</Text>
           </TouchableOpacity>
@@ -78,19 +79,28 @@ export default class UrlForm extends Component {
 }
 
 const styles = StyleSheet.create({
+  button: {
+    alignSelf: 'stretch',
+    // doesn not work with pure text need to textAlign
+    alignItems: 'center',
+    // textAlign: 'center',
+    padding: 20,
+    backgroundColor: '#59cbbd',
+    marginTop: 30,
+  },
+  buttonText: {
+    color: '#fff',
+    fontWeight: 'bold',
+  },
   container: {
     flex: 1,
     justifyContent: 'center',
     backgroundColor: '#36485f',
-    paddingLeft: 60,
-    paddingRight: 60,
-  },
-  urlform: {
-    alignSelf: 'stretch',
-    borderBottomColor: '#199187',
-    borderBottomWidth: 1,
+    paddingLeft: 30,
+    paddingRight: 30,
   },
   header: {
+    textAlign: 'center',
     fontSize: 24,
     color: '#fff',
     paddingBottom: 10,
@@ -104,17 +114,16 @@ const styles = StyleSheet.create({
     borderBottomColor: '#f8f8f8',
     borderBottomWidth: 1,
   },
-  button: {
-    alignSelf: 'stretch',
-    // doesn not work with pure text need to textAlign
-    alignItems: 'center',
-    // textAlign: 'center',
-    padding: 20,
-    backgroundColor: '#59cbbd',
-    marginTop: 30,
-  },
-  buttonText: {
+  title: {
+    textAlign: 'center',
+    fontSize: 30,
     color: '#fff',
-    fontWeight: 'bold',
+    paddingBottom: 10,
+    marginBottom: 40,
+  },
+  urlform: {
+    alignSelf: 'stretch',
+    borderBottomColor: '#199187',
+    borderBottomWidth: 1,
   },
 });

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { StackNavigator } from 'react-navigation';
-import { StyleSheet, Text, View, TouchableOpacity, Alert, ScrollView } from 'react-native';
 import { Card, CardItem } from 'native-base';
+import { Alert, Dimensions, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StackNavigator } from 'react-navigation';
 
 import ScrollContents from './scrollcontents';
 
@@ -36,24 +36,26 @@ export default class ListArticles extends Component {
   render() {
     const { navigate } = this.props.navigation;
     let thisScroll = this.state.scroll.map((article) =>
-      <Card style={{margin: 10}}>
-        <CardItem>
+      <Card style={styles.card}>
+        <View style={styles.cardView}>
+        <CardItem style={styles.articleTitle}>
           <Text>{article.title}</Text>
-       </CardItem>
-       <CardItem>
-        <TouchableOpacity style={styles.button} onPress={() => {
-            this.setState({deletion_id: article.id});
-            this.deleteArticle()
-          }
-          }>
-          <Text style={styles.buttonText}>Delete</Text>
-        </TouchableOpacity>
-       </CardItem>
+        </CardItem>
+        <CardItem>
+          <TouchableOpacity style={styles.deleteButton} onPress={() => {
+              this.setState({deletion_id: article.id});
+              this.deleteArticle()
+              }
+            }>
+            <Text style={styles.buttonText}>Delete</Text>
+          </TouchableOpacity>
+        </CardItem>
+        </View>
       </Card>)
 
     return (
       <View style={styles.container}>
-        <View style={styles.urlform}>
+        <View>
           <ScrollView>
             <TouchableOpacity style={styles.button} onPress={() => navigate('Scroll')}>
               <Text style={styles.buttonText}>Start SkRrrrrollin</Text>
@@ -134,32 +136,10 @@ export default class ListArticles extends Component {
   }
 }
 
+const width = Dimensions.get('window').width;
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    backgroundColor: '#36485f',
-    paddingLeft: 60,
-    paddingRight: 60,
-  },
-  urlform: {
-    alignSelf: 'stretch',
-    borderBottomColor: '#199187',
-    borderBottomWidth: 1,
-  },
-  header: {
-    fontSize: 24,
-    color: '#fff',
-    paddingBottom: 10,
-    marginBottom: 40,
-  },
-  textinput: {
-    alignSelf: 'stretch',
-    height: 40,
-    marginBottom: 30,
-    color: '#fff',
-    borderBottomColor: '#f8f8f8',
-    borderBottomWidth: 1,
+  articleTitle: {
+    width: (width / 2)
   },
   button: {
     alignSelf: 'stretch',
@@ -168,10 +148,36 @@ const styles = StyleSheet.create({
     // textAlign: 'center',
     padding: 20,
     backgroundColor: '#59cbbd',
-    marginTop: 30,
+    marginTop: 20,
+    marginBottom: 20,
   },
   buttonText: {
     color: '#fff',
     fontWeight: 'bold',
+  },
+  card: {
+    marginTop: 10,
+    marginBottom: 10,
+  },
+  cardView: {
+    flexDirection: 'row',
+    flex: 1,
+  },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: '#36485f',
+    paddingLeft: 30,
+    paddingRight: 30,
+  },
+  deleteButton: {
+    alignSelf: 'stretch',
+    // doesn not work with pure text need to textAlign
+    alignItems: 'center',
+    // textAlign: 'center',
+    padding: 20,
+    backgroundColor: '#59cbbd',
+    marginTop: 20,
+    marginBottom: 20,
   },
 });

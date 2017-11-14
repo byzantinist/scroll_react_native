@@ -49,9 +49,10 @@ const styles = StyleSheet.create({
   },
   paragraph: {
     margin: 10,
+    fontSize: 16,
   },
   title: {
-    fontSize: 20,
+    fontSize: 24,
     textAlign: 'center',
     margin: 10,
   },

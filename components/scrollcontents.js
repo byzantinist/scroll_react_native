@@ -111,39 +111,39 @@ export default class ScrollContents extends Component {
         <Animated.Text style={this.getStyle()}>
               <Card style={styles.card}>
                 <CardItem>
-                  <Text>Charlie really likes kittens!</Text>
+                  <Text style={styles.textStyle}>Charlie really likes kittens!</Text>
                 </CardItem>
                 <CardItem>
                   <Image style={styles.image} source={{uri: "https://static.boredpanda.com/blog/wp-content/uploads/2016/08/cute-kittens-29-57b30ad229af3__605.jpg"}}
                   />
                 </CardItem>
                 <CardItem>
-                  <Text>They are much better than silly goldendoodles!</Text>
+                  <Text style={styles.textStyle}>They are much better than silly goldendoodles!</Text>
                 </CardItem>
               </Card>
 
               <Card style={styles.card}>
                 <CardItem>
-                  <Text>Ruby is a Red Panda who eats bamboo and Sour Patch Kids</Text>
+                  <Text style={styles.textStyle}>Ruby is a Red Panda who eats bamboo and Sour Patch Kids</Text>
                 </CardItem>
                 <CardItem>
                   <Image style={styles.image} source={{uri: "https://i.ytimg.com/vi/b6dT4kyVUuY/maxresdefault.jpg"}}
                   />
                 </CardItem>
                 <CardItem>
-                  <Text>Item description</Text>
+                  <Text style={styles.textStyle}>Item description</Text>
                 </CardItem>
               </Card>
 
               <Card style={styles.card}>
                 <CardItem>
-                  <Text>Ruby is also a master assassin who will eliminate all of your enemies for the right price!</Text>
+                  <Text style={styles.textStyle}>Ruby is also a master assassin who will eliminate all of your enemies for the right price!</Text>
                 </CardItem>
                 <CardItem>
                   <Image style={styles.image} source={{uri: "https://i.pinimg.com/736x/e4/a0/43/e4a043311adecfe96ef70416687a3ed7--pandas-playing-too-cute.jpg"}} />
                 </CardItem>
                 <CardItem>
-                  <Text>Item description</Text>
+                  <Text style={styles.textStyle}>Item description</Text>
                 </CardItem>
               </Card>
 
@@ -163,7 +163,7 @@ const styles = StyleSheet.create({
   card: {
     marginBottom: 30,
     height: height,
-    width: width
+    width: width,
   },
   container: {
     flex: 1,
@@ -179,6 +179,7 @@ const styles = StyleSheet.create({
   },
   headerText: {
     color: '#fff',
+    fontSize: 28,
   },
   image: {
     flex:1,
@@ -186,13 +187,16 @@ const styles = StyleSheet.create({
   },
   paragraph: {
     padding: 5,
-    fontSize: 12,
+    fontSize: 16,
     margin: 10,
   },
   square: {
     width: width,
     height: 5000,
     backgroundColor: 'white'
+  },
+  textStyle: {
+    fontSize: 16,
   },
   title: {
     padding: 5,

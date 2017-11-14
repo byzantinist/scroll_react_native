@@ -83,8 +83,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     backgroundColor: '#36485f',
-    paddingLeft: 50,
-    paddingRight: 50,
+    paddingLeft: 30,
+    paddingRight: 30,
   },
   urlform: {
     alignSelf: 'stretch',

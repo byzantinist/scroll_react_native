@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { Image, Platform, ScrollView, StyleSheet, Text, View } from 'react-native';
+import Dataset from 'impagination';
 import { Card, CardItem, Container, Content, Header, Spinner, Title } from 'native-base';
+import { Image, StyleSheet, Text } from 'react-native';
 
 import InfiniteScroll from './infinitescroll';
-
-import Dataset from 'impagination';
 
 export default class ScrollContents extends Component {
   constructor(props) {

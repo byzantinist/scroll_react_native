@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
 import { Card, CardItem } from 'native-base';
+import { Image, StyleSheet, Text, View } from 'react-native';
 
 export default class InfiniteScroll extends Component {
   constructor(props) {
@@ -11,7 +11,7 @@ export default class InfiniteScroll extends Component {
 
   render() {
     return (
-      <Card style={{margin: 10}}>
+      <Card>
         <CardItem>
           <Text style={styles.title}>{this.recordData.title}</Text>
         </CardItem>
@@ -31,18 +31,12 @@ export default class InfiniteScroll extends Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+  paragraph: {
+    margin: 10,
   },
   title: {
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
   },
-  paragraph: {
-    margin: 10,
-  }
 });

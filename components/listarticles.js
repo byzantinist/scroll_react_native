@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { StackNavigator } from 'react-navigation';
-import { Alert, Dimensions, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { Card, CardItem } from 'native-base';
+import { Alert, Dimensions, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StackNavigator } from 'react-navigation';
 
 import ScrollContents from './scrollcontents';
 
@@ -138,33 +138,8 @@ export default class ListArticles extends Component {
 
 const width = Dimensions.get('window').width;
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    backgroundColor: '#36485f',
-    paddingLeft: 30,
-    paddingRight: 30,
-  },
-  card: {
-    marginTop: 10,
-    marginBottom: 10
-  },
-  cardView: {
-    flexDirection: 'row',
-    flex: 1,
-  },
   articleTitle: {
     width: (width / 2)
-  },
-  deleteButton: {
-    alignSelf: 'stretch',
-    // doesn not work with pure text need to textAlign
-    alignItems: 'center',
-    // textAlign: 'center',
-    padding: 20,
-    backgroundColor: '#59cbbd',
-    marginTop: 20,
-    marginBottom: 20,
   },
   button: {
     alignSelf: 'stretch',
@@ -179,5 +154,30 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#fff',
     fontWeight: 'bold',
+  },
+  card: {
+    marginTop: 10,
+    marginBottom: 10,
+  },
+  cardView: {
+    flexDirection: 'row',
+    flex: 1,
+  },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: '#36485f',
+    paddingLeft: 30,
+    paddingRight: 30,
+  },
+  deleteButton: {
+    alignSelf: 'stretch',
+    // doesn not work with pure text need to textAlign
+    alignItems: 'center',
+    // textAlign: 'center',
+    padding: 20,
+    backgroundColor: '#59cbbd',
+    marginTop: 20,
+    marginBottom: 20,
   },
 });

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Alert, AsyncStorage, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Alert, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 export default class UrlForm extends Component {
@@ -79,24 +79,25 @@ export default class UrlForm extends Component {
 }
 
 const styles = StyleSheet.create({
+  button: {
+    alignSelf: 'stretch',
+    // doesn not work with pure text need to textAlign
+    alignItems: 'center',
+    // textAlign: 'center',
+    padding: 20,
+    backgroundColor: '#59cbbd',
+    marginTop: 30,
+  },
+  buttonText: {
+    color: '#fff',
+    fontWeight: 'bold',
+  },
   container: {
     flex: 1,
     justifyContent: 'center',
     backgroundColor: '#36485f',
     paddingLeft: 30,
     paddingRight: 30,
-  },
-  urlform: {
-    alignSelf: 'stretch',
-    borderBottomColor: '#199187',
-    borderBottomWidth: 1,
-  },
-  title: {
-    textAlign: 'center',
-    fontSize: 30,
-    color: '#fff',
-    paddingBottom: 10,
-    marginBottom: 40,
   },
   header: {
     textAlign: 'center',
@@ -113,17 +114,16 @@ const styles = StyleSheet.create({
     borderBottomColor: '#f8f8f8',
     borderBottomWidth: 1,
   },
-  button: {
-    alignSelf: 'stretch',
-    // doesn not work with pure text need to textAlign
-    alignItems: 'center',
-    // textAlign: 'center',
-    padding: 20,
-    backgroundColor: '#59cbbd',
-    marginTop: 30,
-  },
-  buttonText: {
+  title: {
+    textAlign: 'center',
+    fontSize: 30,
     color: '#fff',
-    fontWeight: 'bold',
+    paddingBottom: 10,
+    marginBottom: 40,
+  },
+  urlform: {
+    alignSelf: 'stretch',
+    borderBottomColor: '#199187',
+    borderBottomWidth: 1,
   },
 });

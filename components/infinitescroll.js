@@ -1,14 +1,6 @@
 import React, { Component } from 'react';
-import {
-  Text,
-  Image,
-  View,
-  StyleSheet
-} from 'react-native';
-import {
-  Card,
-  CardItem,
-} from 'native-base';
+import { Image, StyleSheet, Text, View } from 'react-native';
+import { Card, CardItem } from 'native-base';
 
 export default class InfiniteScroll extends Component {
   constructor(props) {

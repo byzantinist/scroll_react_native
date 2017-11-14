@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AsyncStorage, StyleSheet, Text, TextInput, TouchableOpacity, View, Alert } from 'react-native';
+import { Alert, AsyncStorage, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 export default class UrlForm extends Component {

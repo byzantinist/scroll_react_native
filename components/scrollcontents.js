@@ -1,20 +1,6 @@
 import React, { Component } from 'react';
-import {
-  Text,
-  Image,
-  Platform,
-  View,
-  ScrollView
-} from 'react-native';
-import {
-  Header,
-  Container,
-  Title,
-  Content,
-  Card,
-  CardItem,
-  Spinner
-} from 'native-base';
+import { Image, Platform, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Card, CardItem, Container, Content, Header, Spinner, Title } from 'native-base';
 
 import InfiniteScroll from './infinitescroll';
 
@@ -78,9 +64,9 @@ export default class ScrollContents extends Component {
 
   render() {
     return (
-      <Container>
-          <Header>
-            <Title>Slow Ur Scroll</Title>
+      <Container style={styles.container}>
+          <Header style={styles.header}>
+            <Title style={styles.headerText}>Slow Ur Scroll</Title>
           </Header>
           <Content scrollEventThrottle={300} onScroll={this.setCurrentReadOffset} removeClippedSubviews={true}>
 
@@ -129,3 +115,19 @@ export default class ScrollContents extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    backgroundColor: '#36485f',
+    paddingLeft: 30,
+    paddingRight: 30,
+  },
+  header: {
+    backgroundColor: '#59cbbd',
+  },
+  headerText: {
+    color: '#fff',
+  }
+});

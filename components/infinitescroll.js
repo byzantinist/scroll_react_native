@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import { Card, CardItem } from 'native-base';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Dimensions, Image, StyleSheet, Text, View } from 'react-native';
+
+var {
+  width,
+  height
+} = Dimensions.get('window');
 
 export default class InfiniteScroll extends Component {
   constructor(props) {
@@ -33,6 +38,8 @@ export default class InfiniteScroll extends Component {
 const styles = StyleSheet.create({
   card: {
     marginBottom: 30,
+    height: height,
+    width: width
   },
   image: {
     flex:1,

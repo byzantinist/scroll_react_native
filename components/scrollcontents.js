@@ -69,12 +69,12 @@ export default class ScrollContents extends Component {
           </Header>
           <Content scrollEventThrottle={300} onScroll={this.setCurrentReadOffset} removeClippedSubviews={true}>
 
-            <Card style={{margin: 10}}>
+            <Card style={styles.card}>
               <CardItem>
                 <Text>Charlie really likes kittens!</Text>
               </CardItem>
               <CardItem>
-                <Image style={{ flex:1, height: 300 }} source={{uri: "https://static.boredpanda.com/blog/wp-content/uploads/2016/08/cute-kittens-29-57b30ad229af3__605.jpg"}}
+                <Image style={styles.image} source={{uri: "https://static.boredpanda.com/blog/wp-content/uploads/2016/08/cute-kittens-29-57b30ad229af3__605.jpg"}}
                 />
               </CardItem>
               <CardItem>
@@ -82,12 +82,12 @@ export default class ScrollContents extends Component {
               </CardItem>
             </Card>
 
-            <Card style={{margin: 10}}>
+            <Card style={styles.card}>
               <CardItem>
                 <Text>Ruby is a Red Panda who eats bamboo and Sour Patch Kids</Text>
               </CardItem>
               <CardItem>
-                <Image style={{ flex:1, height: 300 }} source={{uri: "https://i.ytimg.com/vi/b6dT4kyVUuY/maxresdefault.jpg"}}
+                <Image style={styles.image} source={{uri: "https://i.ytimg.com/vi/b6dT4kyVUuY/maxresdefault.jpg"}}
                 />
               </CardItem>
               <CardItem>
@@ -95,12 +95,12 @@ export default class ScrollContents extends Component {
               </CardItem>
             </Card>
 
-            <Card style={{margin: 10}}>
+            <Card style={styles.card}>
               <CardItem>
                 <Text>Ruby is also a master assassin who will eliminate all of your enemies for the right price!</Text>
               </CardItem>
               <CardItem>
-                <Image style={{ flex:1, height: 300 }} source={{uri: "https://i.pinimg.com/736x/e4/a0/43/e4a043311adecfe96ef70416687a3ed7--pandas-playing-too-cute.jpg"}} />
+                <Image style={styles.image} source={{uri: "https://i.pinimg.com/736x/e4/a0/43/e4a043311adecfe96ef70416687a3ed7--pandas-playing-too-cute.jpg"}} />
               </CardItem>
               <CardItem>
                 <Text>Item description</Text>
@@ -116,6 +116,9 @@ export default class ScrollContents extends Component {
 }
 
 const styles = StyleSheet.create({
+  card: {
+    marginBottom: 30,
+  },
   container: {
     flex: 1,
     justifyContent: 'center',
@@ -125,8 +128,14 @@ const styles = StyleSheet.create({
   },
   header: {
     backgroundColor: '#59cbbd',
+    marginTop: 20,
+    marginBottom: 20,
   },
   headerText: {
     color: '#fff',
+  },
+  image: {
+    flex:1,
+    height: 300
   }
 });

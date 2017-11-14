@@ -24,10 +24,10 @@ export default class UrlForm extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.urlform}>
-          <Text style={styles.title}>Ruby's Article Viewer</Text>
+          <Text style={styles.title}>VertiScroll</Text>
           <Text style={styles.header}>Copy & Paste Article URL:</Text>
 
-          <TextInput ref="UrlBox" style={styles.textinput} placeholder="(Enter the Article URL Here)" placeholderTextColor="#fff"onChangeText={ (url) => this.setState({url}) } />
+          <TextInput ref="UrlBox" style={styles.textinput} placeholder="(Enter the Article URL Here)"  placeholderTextColor="#fff"onChangeText={ (url) => this.setState({url}) } />
           <TouchableOpacity style={styles.button} onPress={this.postArticle}>
             <Text style={styles.buttonText}>Submit Article</Text>
           </TouchableOpacity>
@@ -91,6 +91,7 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#fff',
     fontWeight: 'bold',
+    fontSize: 28,
   },
   container: {
     flex: 1,
@@ -101,14 +102,14 @@ const styles = StyleSheet.create({
   },
   header: {
     textAlign: 'center',
-    fontSize: 24,
+    fontSize: 28,
     color: '#fff',
     paddingBottom: 10,
     marginBottom: 40,
   },
   textinput: {
     alignSelf: 'stretch',
-    height: 40,
+    height: 45,
     marginBottom: 30,
     color: '#fff',
     borderBottomColor: '#f8f8f8',
@@ -116,7 +117,7 @@ const styles = StyleSheet.create({
   },
   title: {
     textAlign: 'center',
-    fontSize: 30,
+    fontSize: 40,
     color: '#fff',
     paddingBottom: 10,
     marginBottom: 40,

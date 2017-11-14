@@ -39,7 +39,7 @@ export default class ListArticles extends Component {
       <Card style={styles.card}>
         <View style={styles.cardView}>
         <CardItem style={styles.articleTitle}>
-          <Text>{article.title}</Text>
+          <Text style={styles.articleTitleText}>{article.title}</Text>
         </CardItem>
         <CardItem>
           <TouchableOpacity style={styles.deleteButton} onPress={() => {
@@ -47,7 +47,7 @@ export default class ListArticles extends Component {
               this.deleteArticle()
               }
             }>
-            <Text style={styles.buttonText}>Delete</Text>
+            <Text style={styles.deleteButtonText}>Delete</Text>
           </TouchableOpacity>
         </CardItem>
         </View>
@@ -141,6 +141,9 @@ const styles = StyleSheet.create({
   articleTitle: {
     width: (width / 2)
   },
+  articleTitleText: {
+    fontSize: 20,
+  },
   button: {
     alignSelf: 'stretch',
     // doesn not work with pure text need to textAlign
@@ -154,6 +157,7 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#fff',
     fontWeight: 'bold',
+    fontSize: 28,
   },
   card: {
     marginTop: 10,
@@ -180,4 +184,9 @@ const styles = StyleSheet.create({
     marginTop: 20,
     marginBottom: 20,
   },
+  deleteButtonText: {
+    color: '#fff',
+    fontWeight: 'bold',
+    fontSize: 20,
+  }
 });

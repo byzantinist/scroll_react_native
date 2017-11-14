@@ -4,7 +4,7 @@ import { StackNavigator } from 'react-navigation';
 
 export default class UrlForm extends Component {
   static navigationOptions = {
-    title: 'Home'
+    title: 'Add Articles'
   };
 
   constructor(props) {
@@ -24,9 +24,10 @@ export default class UrlForm extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.urlform}>
-          <Text style={styles.header}>Copy & Paste Article URL</Text>
+          <Text style={styles.title}>Ruby's Article Viewer</Text>
+          <Text style={styles.header}>Copy & Paste Article URL:</Text>
 
-          <TextInput ref="UrlBox" style={styles.textinput} placeholder="Article URL" onChangeText={ (url) => this.setState({url}) } />
+          <TextInput ref="UrlBox" style={styles.textinput} placeholder="(Enter the Article URL Here)" placeholderTextColor="#fff"onChangeText={ (url) => this.setState({url}) } />
           <TouchableOpacity style={styles.button} onPress={this.postArticle}>
             <Text style={styles.buttonText}>Submit Article</Text>
           </TouchableOpacity>
@@ -82,15 +83,23 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     backgroundColor: '#36485f',
-    paddingLeft: 60,
-    paddingRight: 60,
+    paddingLeft: 50,
+    paddingRight: 50,
   },
   urlform: {
     alignSelf: 'stretch',
     borderBottomColor: '#199187',
     borderBottomWidth: 1,
   },
+  title: {
+    textAlign: 'center',
+    fontSize: 30,
+    color: '#fff',
+    paddingBottom: 10,
+    marginBottom: 40,
+  },
   header: {
+    textAlign: 'center',
     fontSize: 24,
     color: '#fff',
     paddingBottom: 10,

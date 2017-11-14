@@ -54,16 +54,15 @@ export default class ListArticles extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.urlform}>
-          <TouchableOpacity style={styles.button} onPress={() => navigate('Scroll')}>
-            <Text style={styles.buttonText}>Start SkRrrrrollin</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.button} onPress={this.clearArticles}>
+          <ScrollView>
+            <TouchableOpacity style={styles.button} onPress={() => navigate('Scroll')}>
+              <Text style={styles.buttonText}>Start SkRrrrrollin</Text>
+            </TouchableOpacity>
+            {thisScroll}
+            <TouchableOpacity style={styles.button} onPress={this.clearArticles}>
             <Text style={styles.buttonText}>Clear All Articles</Text>
-          </TouchableOpacity>
-
-          <ScrollView>{thisScroll}</ScrollView>
-
+            </TouchableOpacity>
+          </ScrollView>
         </View>
       </View>
      );

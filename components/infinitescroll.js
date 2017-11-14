@@ -17,6 +17,7 @@ export default class InfiniteScroll extends Component {
   render() {
     return (
       <Card style={styles.card}>
+        <View>
         <CardItem>
           <Text style={styles.title}>{this.recordData.title}</Text>
         </CardItem>
@@ -30,6 +31,7 @@ export default class InfiniteScroll extends Component {
         <CardItem>
           <Image style={styles.image} source={{uri: "https://i.ytimg.com/vi/b6dT4kyVUuY/maxresdefault.jpg"}} />
         </CardItem>
+        </View>
       </Card>
     );
   }

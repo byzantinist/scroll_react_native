@@ -16,7 +16,7 @@ var {
 
 export default class NewScroll extends Component {
   static navigationOptions = {
-    title: 'New Scroll'
+    title: 'Scroll Articles'
   };
 
   constructor(){
@@ -54,7 +54,6 @@ export default class NewScroll extends Component {
     styles.square,
       {
         transform: this.state.pan.getTranslateTransform(),
-        padding: 15,
         marginTop: height/2,
       }
     ];
@@ -76,6 +75,7 @@ export default class NewScroll extends Component {
              <View>{article.body.map((para, index) =>
                <Text style={styles.paragraph} key={index}>{para}</Text>)}
             </View>
+            <View style={{backgroundColor:'#36485f',flex:1,height:50}}/>
           </View>)
         }
       </Animated.View>)
@@ -95,9 +95,10 @@ const styles = StyleSheet.create({
     marginBottom: 30,
   },
   paragraph: {
-    paddingTop: 5,
     paddingTop: 8,
     paddingBottom: 8,
+    paddingLeft: 20,
+    paddingRight: 20,
     fontSize: 21,
     color: '#222'
   },
@@ -108,8 +109,9 @@ const styles = StyleSheet.create({
   title: {
     textAlign: 'center',
     fontSize: 30,
-    marginBottom: 20,
+    marginBottom: 10,
     fontWeight: 'bold',
     color: '#222',
+    padding: 15
   },
 });

@@ -3,8 +3,6 @@ import { Card, CardItem } from 'native-base';
 import { Alert, Dimensions, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
-import ScrollContents from './scrollcontents';
-
 var api = {
   getArticles(){
     var url = 'https://desolate-oasis-97513.herokuapp.com/scrollios/1'
@@ -35,8 +33,8 @@ export default class ListArticles extends Component {
 
   render() {
     const { navigate } = this.props.navigation;
-    let thisScroll = this.state.scroll.map((article) =>
-      <Card style={styles.card}>
+    let thisScroll = this.state.scroll.map((article, index) =>
+      <Card style={styles.card} key={index}>
         <View style={styles.cardView}>
         <CardItem style={styles.articleTitle}>
           <Text style={styles.articleTitleText}>{article.title}</Text>
@@ -57,7 +55,7 @@ export default class ListArticles extends Component {
       <View style={styles.container}>
         <View>
           <ScrollView>
-            <TouchableOpacity style={styles.button} onPress={() => navigate('Scroll')}>
+            <TouchableOpacity style={styles.button} onPress={() => navigate('NewScroll')}>
               <Text style={styles.buttonText}>Start SkRrrrrollin</Text>
             </TouchableOpacity>
             {thisScroll}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Animated, Dimensions, Easing, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Container, Header } from 'native-base';
+import { Animated, Dimensions, Easing, ScrollView, StyleSheet, Text, TouchableOpacity,View } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 var api = {
@@ -23,7 +24,8 @@ export default class NewScroll extends Component {
    super();
     this.state = {
       pan: new Animated.ValueXY(),
-      scroll: []
+      scroll: [],
+      duration: 300000
     }
   }
 
@@ -80,7 +82,25 @@ export default class NewScroll extends Component {
         }
       </Animated.View>)
     return (
+      <Container>
+      <Header style={styles.header}>
+        <TouchableOpacity style={styles.speedButton} onPress={() => {
+              alert("SLOW!");
+              }
+            }>
+          <Text>{this.state.duration}</Text>
+        </TouchableOpacity>
+        <Container>
+        </Container>
+        <TouchableOpacity style={styles.speedButton} onPress={() => {
+              console.log(this.state.duration);
+              }
+            }>
+          <Text>Red Panda is BACK!</Text>
+        </TouchableOpacity>
+      </Header>
       <ScrollView style={styles.container}>{scrollData}</ScrollView>
+      </Container>
     );
   }
 
@@ -89,6 +109,9 @@ export default class NewScroll extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#36485f',
+  },
+  header: {
     backgroundColor: '#36485f',
   },
   newsArticle : {
@@ -101,6 +124,9 @@ const styles = StyleSheet.create({
     paddingRight: 20,
     fontSize: 21,
     color: '#222'
+  },
+  speedButton: {
+    backgroundColor: '#59cbbd',
   },
   square: {
     width: width,

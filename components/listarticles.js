@@ -82,7 +82,6 @@ export default class ListArticles extends Component {
               },
           })
           .then((response) => {
-            console.log(response.status);
             Alert.alert(
               'Success!',
               'All articles have been cleared!',
@@ -94,7 +93,7 @@ export default class ListArticles extends Component {
           })
           .done();
         }},
-        {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'}
+        {text: 'Cancel', style: 'cancel'}
       ],
       { cancelable: false }
     )
@@ -115,7 +114,6 @@ export default class ListArticles extends Component {
               },
           })
           .then((response) => {
-            console.log(response.status);
             Alert.alert(
               'Success!',
               'This article has been deleted!',
@@ -127,7 +125,7 @@ export default class ListArticles extends Component {
           })
           .done();
         }},
-        {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'}
+        {text: 'Cancel', style: 'cancel'}
       ],
       { cancelable: false }
     )

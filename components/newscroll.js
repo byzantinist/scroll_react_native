@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Animated, Dimensions, Easing, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Container, Header } from 'native-base';
+import { Animated, Dimensions, Easing, ScrollView, StyleSheet, Text, TouchableOpacity,View } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 var api = {
@@ -23,7 +24,8 @@ export default class NewScroll extends Component {
    super();
     this.state = {
       pan: new Animated.ValueXY(),
-      scroll: []
+      scroll: [],
+      duration: 300000,
     }
   }
 
@@ -42,7 +44,7 @@ export default class NewScroll extends Component {
   triggerAnimation(cb) {
     Animated.sequence([
       Animated.timing(this.state.pan, {
-      duration: 300000,
+      duration: this.state.duration,
       easing: Easing.linear,
       toValue: {x: 0, y: -5000}
       }),
@@ -80,7 +82,31 @@ export default class NewScroll extends Component {
         }
       </Animated.View>)
     return (
+      <Container>
+      <Header style={styles.header}>
+        <TouchableOpacity style={styles.speedButton} onPress={() => {
+            var newSpeed = this.state.pan.y._animation._toValue * 0.9;
+            var newOffset = this.state.pan.y._value * 0.9;
+            this.state.pan.y._animation._toValue = newSpeed;
+            this.state.pan.y._offset = -1 * newOffset;
+          }
+        }>
+          <Text>Panda is slow!</Text>
+        </TouchableOpacity>
+        <Container>
+        </Container>
+        <TouchableOpacity style={styles.speedButton} onPress={() => {
+            var newSpeed = this.state.pan.y._animation._toValue * 1.1;
+            var newOffset = this.state.pan.y._value * 1.1;
+            this.state.pan.y._animation._toValue = newSpeed;
+            this.state.pan.y._offset = -1 * newOffset;
+          }
+        }>
+          <Text>Red Panda is fast!</Text>
+        </TouchableOpacity>
+      </Header>
       <ScrollView style={styles.container}>{scrollData}</ScrollView>
+      </Container>
     );
   }
 
@@ -89,6 +115,9 @@ export default class NewScroll extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#36485f',
+  },
+  header: {
     backgroundColor: '#36485f',
   },
   newsArticle : {
@@ -101,6 +130,9 @@ const styles = StyleSheet.create({
     paddingRight: 20,
     fontSize: 21,
     color: '#222'
+  },
+  speedButton: {
+    backgroundColor: '#59cbbd',
   },
   square: {
     width: width,

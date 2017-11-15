@@ -1,0 +1,438 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "flex": 1,
+        "height": 1334,
+      },
+      Object {
+        "backgroundColor": "#36485f",
+        "flex": 1,
+        "justifyContent": "center",
+        "paddingLeft": 0,
+        "paddingRight": 0,
+      },
+    ]
+  }
+  virtual={undefined}
+>
+  <View>
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#F8F8F8",
+            "borderBottomColor": "#a7a6ab",
+            "borderBottomWidth": 0.5,
+            "elevation": 3,
+            "flexDirection": "row",
+            "height": 64,
+            "justifyContent": "center",
+            "left": 0,
+            "paddingLeft": 10,
+            "paddingRight": 10,
+            "paddingTop": 15,
+            "right": 0,
+            "shadowColor": undefined,
+            "shadowOffset": undefined,
+            "shadowOpacity": undefined,
+            "shadowRadius": undefined,
+            "top": 0,
+          },
+          Object {
+            "backgroundColor": "#59cbbd",
+            "marginBottom": 20,
+            "marginTop": 20,
+          },
+        ]
+      }
+      virtual={undefined}
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        numberOfLines={1}
+        style={
+          Array [
+            Object {
+              "color": "#000",
+              "fontFamily": "System",
+              "fontSize": 17,
+              "fontWeight": "600",
+              "textAlign": "center",
+            },
+            Object {
+              "color": "#fff",
+              "fontSize": 28,
+            },
+          ]
+        }
+        virtual={undefined}
+      >
+        Slow Ur Scroll
+      </Text>
+    </View>
+  </View>
+  <RCTScrollView
+    automaticallyAdjustContentInsets={false}
+    contentInset={
+      Object {
+        "bottom": 0,
+      }
+    }
+    enableAutoAutomaticScroll={true}
+    enableResetScrollToCoords={true}
+    extraHeight={75}
+    extraScrollHeight={0}
+    keyboardDismissMode="interactive"
+    keyboardOpeningTime={250}
+    onScroll={[Function]}
+    removeClippedSubviews={true}
+    resetScrollToCoords={
+      Object {
+        "x": 0,
+        "y": 0,
+      }
+    }
+    scrollEventThrottle={300}
+    showsVerticalScrollIndicator={true}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+        "flex": 1,
+      }
+    }
+    virtual={undefined}
+  >
+    <View>
+      <View
+        onLayout={[Function]}
+        style={
+          Object {
+            "backgroundColor": "#36485f",
+            "flex": 1,
+            "justifyContent": "center",
+            "paddingLeft": 0,
+            "paddingRight": 0,
+          }
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          collapsable={undefined}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "backgroundColor": "white",
+              "color": "#444",
+              "height": 5000,
+              "marginTop": 667,
+              "padding": 15,
+              "transform": Array [
+                Object {
+                  "translateX": 0,
+                },
+                Object {
+                  "translateY": 0,
+                },
+              ],
+              "width": 750,
+            }
+          }
+        >
+          <ActivityIndicator
+            animating={true}
+            color="#45D56E"
+            hidesWhenStopped={true}
+            size="large"
+            style={
+              Array [
+                Object {
+                  "height": 80,
+                },
+                Object {
+                  "height": 1334,
+                  "marginBottom": 30,
+                  "width": 750,
+                },
+              ]
+            }
+            virtual={undefined}
+          />
+          <ActivityIndicator
+            animating={true}
+            color="#45D56E"
+            hidesWhenStopped={true}
+            size="large"
+            style={
+              Array [
+                Object {
+                  "height": 80,
+                },
+                Object {
+                  "height": 1334,
+                  "marginBottom": 30,
+                  "width": 750,
+                },
+              ]
+            }
+            virtual={undefined}
+          />
+          <ActivityIndicator
+            animating={true}
+            color="#45D56E"
+            hidesWhenStopped={true}
+            size="large"
+            style={
+              Array [
+                Object {
+                  "height": 80,
+                },
+                Object {
+                  "height": 1334,
+                  "marginBottom": 30,
+                  "width": 750,
+                },
+              ]
+            }
+            virtual={undefined}
+          />
+          <ActivityIndicator
+            animating={true}
+            color="#45D56E"
+            hidesWhenStopped={true}
+            size="large"
+            style={
+              Array [
+                Object {
+                  "height": 80,
+                },
+                Object {
+                  "height": 1334,
+                  "marginBottom": 30,
+                  "width": 750,
+                },
+              ]
+            }
+            virtual={undefined}
+          />
+          <ActivityIndicator
+            animating={true}
+            color="#45D56E"
+            hidesWhenStopped={true}
+            size="large"
+            style={
+              Array [
+                Object {
+                  "height": 80,
+                },
+                Object {
+                  "height": 1334,
+                  "marginBottom": 30,
+                  "width": 750,
+                },
+              ]
+            }
+            virtual={undefined}
+          />
+          <ActivityIndicator
+            animating={true}
+            color="#45D56E"
+            hidesWhenStopped={true}
+            size="large"
+            style={
+              Array [
+                Object {
+                  "height": 80,
+                },
+                Object {
+                  "height": 1334,
+                  "marginBottom": 30,
+                  "width": 750,
+                },
+              ]
+            }
+            virtual={undefined}
+          />
+          <ActivityIndicator
+            animating={true}
+            color="#45D56E"
+            hidesWhenStopped={true}
+            size="large"
+            style={
+              Array [
+                Object {
+                  "height": 80,
+                },
+                Object {
+                  "height": 1334,
+                  "marginBottom": 30,
+                  "width": 750,
+                },
+              ]
+            }
+            virtual={undefined}
+          />
+          <ActivityIndicator
+            animating={true}
+            color="#45D56E"
+            hidesWhenStopped={true}
+            size="large"
+            style={
+              Array [
+                Object {
+                  "height": 80,
+                },
+                Object {
+                  "height": 1334,
+                  "marginBottom": 30,
+                  "width": 750,
+                },
+              ]
+            }
+            virtual={undefined}
+          />
+          <ActivityIndicator
+            animating={true}
+            color="#45D56E"
+            hidesWhenStopped={true}
+            size="large"
+            style={
+              Array [
+                Object {
+                  "height": 80,
+                },
+                Object {
+                  "height": 1334,
+                  "marginBottom": 30,
+                  "width": 750,
+                },
+              ]
+            }
+            virtual={undefined}
+          />
+          <ActivityIndicator
+            animating={true}
+            color="#45D56E"
+            hidesWhenStopped={true}
+            size="large"
+            style={
+              Array [
+                Object {
+                  "height": 80,
+                },
+                Object {
+                  "height": 1334,
+                  "marginBottom": 30,
+                  "width": 750,
+                },
+              ]
+            }
+            virtual={undefined}
+          />
+          <ActivityIndicator
+            animating={true}
+            color="#45D56E"
+            hidesWhenStopped={true}
+            size="large"
+            style={
+              Array [
+                Object {
+                  "height": 80,
+                },
+                Object {
+                  "height": 1334,
+                  "marginBottom": 30,
+                  "width": 750,
+                },
+              ]
+            }
+            virtual={undefined}
+          />
+          <ActivityIndicator
+            animating={true}
+            color="#45D56E"
+            hidesWhenStopped={true}
+            size="large"
+            style={
+              Array [
+                Object {
+                  "height": 80,
+                },
+                Object {
+                  "height": 1334,
+                  "marginBottom": 30,
+                  "width": 750,
+                },
+              ]
+            }
+            virtual={undefined}
+          />
+          <ActivityIndicator
+            animating={true}
+            color="#45D56E"
+            hidesWhenStopped={true}
+            size="large"
+            style={
+              Array [
+                Object {
+                  "height": 80,
+                },
+                Object {
+                  "height": 1334,
+                  "marginBottom": 30,
+                  "width": 750,
+                },
+              ]
+            }
+            virtual={undefined}
+          />
+          <ActivityIndicator
+            animating={true}
+            color="#45D56E"
+            hidesWhenStopped={true}
+            size="large"
+            style={
+              Array [
+                Object {
+                  "height": 80,
+                },
+                Object {
+                  "height": 1334,
+                  "marginBottom": 30,
+                  "width": 750,
+                },
+              ]
+            }
+            virtual={undefined}
+          />
+          <ActivityIndicator
+            animating={true}
+            color="#45D56E"
+            hidesWhenStopped={true}
+            size="large"
+            style={
+              Array [
+                Object {
+                  "height": 80,
+                },
+                Object {
+                  "height": 1334,
+                  "marginBottom": 30,
+                  "width": 750,
+                },
+              ]
+            }
+            virtual={undefined}
+          />
+        </Text>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;

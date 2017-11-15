@@ -16,8 +16,7 @@ export default class App extends React.Component {
 }
 
 export const ScrollApp = StackNavigator({
-  NewScroll: { screen: NewScroll },
   UrlForm: { screen: UrlForm },
   ListArticles: { screen: ListArticles },
-
+  NewScroll: { screen: NewScroll },
 });

@@ -1,0 +1,369 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Array [
+      Object {
+        "flex": 1,
+      },
+    ]
+  }
+>
+  <View
+    onMoveShouldSetResponder={[Function]}
+    onMoveShouldSetResponderCapture={[Function]}
+    onResponderEnd={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderReject={[Function]}
+    onResponderRelease={[Function]}
+    onResponderStart={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    onStartShouldSetResponderCapture={[Function]}
+    style={
+      Array [
+        Object {
+          "flex": 1,
+          "flexDirection": "column-reverse",
+        },
+        Object {
+          "backgroundColor": "#000",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    >
+      <View
+        collapsable={undefined}
+        pointerEvents="auto"
+        style={
+          Object {
+            "backgroundColor": "#E9E9EF",
+            "bottom": 0,
+            "left": 0,
+            "opacity": 1,
+            "position": "absolute",
+            "right": 0,
+            "shadowColor": "black",
+            "shadowOffset": Object {
+              "height": 0,
+              "width": 0,
+            },
+            "shadowOpacity": 0.2,
+            "shadowRadius": 5,
+            "top": 0,
+            "transform": Array [
+              Object {
+                "translateX": 0,
+              },
+              Object {
+                "translateY": 0,
+              },
+            ],
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#36485f",
+              "flex": 1,
+              "justifyContent": "center",
+              "paddingLeft": 30,
+              "paddingRight": 30,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignSelf": "stretch",
+                "borderBottomColor": "#199187",
+                "borderBottomWidth": 1,
+              }
+            }
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "color": "#fff",
+                  "fontSize": 40,
+                  "marginBottom": 40,
+                  "paddingBottom": 10,
+                  "textAlign": "center",
+                }
+              }
+            >
+              VertiScroll
+            </Text>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "color": "#fff",
+                  "fontSize": 28,
+                  "marginBottom": 40,
+                  "paddingBottom": 10,
+                  "textAlign": "center",
+                }
+              }
+            >
+              Copy & Paste Article URL:
+            </Text>
+            <TextInput
+              allowFontScaling={true}
+              onChangeText={[Function]}
+              placeholder="(Enter the Article URL Here)"
+              placeholderTextColor="#fff"
+              style={
+                Object {
+                  "alignSelf": "stretch",
+                  "borderBottomColor": "#f8f8f8",
+                  "borderBottomWidth": 1,
+                  "color": "#fff",
+                  "height": 45,
+                  "marginBottom": 30,
+                }
+              }
+            />
+            <View
+              accessibilityComponentType={undefined}
+              accessibilityLabel={undefined}
+              accessibilityTraits={undefined}
+              accessible={true}
+              collapsable={undefined}
+              hitSlop={undefined}
+              isTVSelectable={true}
+              nativeID={undefined}
+              onLayout={undefined}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "alignItems": "center",
+                  "alignSelf": "stretch",
+                  "backgroundColor": "#59cbbd",
+                  "marginTop": 30,
+                  "opacity": 1,
+                  "padding": 20,
+                }
+              }
+              testID={undefined}
+              tvParallaxProperties={undefined}
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Object {
+                    "color": "#fff",
+                    "fontSize": 28,
+                    "fontWeight": "bold",
+                  }
+                }
+              >
+                Submit Article
+              </Text>
+            </View>
+            <View
+              accessibilityComponentType={undefined}
+              accessibilityLabel={undefined}
+              accessibilityTraits={undefined}
+              accessible={true}
+              collapsable={undefined}
+              hitSlop={undefined}
+              isTVSelectable={true}
+              nativeID={undefined}
+              onLayout={undefined}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "alignItems": "center",
+                  "alignSelf": "stretch",
+                  "backgroundColor": "#59cbbd",
+                  "marginTop": 30,
+                  "opacity": 1,
+                  "padding": 20,
+                }
+              }
+              testID={undefined}
+              tvParallaxProperties={undefined}
+            >
+              <Text
+                accessible={true}
+                allowFontScaling={true}
+                ellipsizeMode="tail"
+                style={
+                  Object {
+                    "color": "#fff",
+                    "fontSize": 28,
+                    "fontWeight": "bold",
+                  }
+                }
+              >
+                View List
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      cardStyle={undefined}
+      collapsable={undefined}
+      getScreenDetails={[Function]}
+      headerMode={undefined}
+      index={0}
+      layout={
+        Object {
+          "height": 0,
+          "initHeight": 0,
+          "initWidth": 0,
+          "isMeasured": false,
+          "width": 0,
+        }
+      }
+      mode="float"
+      navigation={
+        Object {
+          "dispatch": [Function],
+          "goBack": [Function],
+          "navigate": [Function],
+          "setParams": [Function],
+          "state": Object {
+            "index": 0,
+            "routes": Array [
+              Object {
+                "key": "Init-id-1510783622443-0",
+                "routeName": "UrlForm",
+              },
+            ],
+          },
+        }
+      }
+      router={
+        Object {
+          "getActionForPathAndParams": [Function],
+          "getComponentForRouteName": [Function],
+          "getComponentForState": [Function],
+          "getPathAndParamsForState": [Function],
+          "getScreenConfig": [Function],
+          "getScreenOptions": [Function],
+          "getStateForAction": [Function],
+        }
+      }
+      transitionConfig={undefined}
+    >
+      <View
+        onLayout={[Function]}
+        style={
+          Object {
+            "backgroundColor": "#F7F7F7",
+            "borderBottomColor": "rgba(0, 0, 0, .3)",
+            "borderBottomWidth": 0.5,
+            "height": 64,
+            "paddingBottom": 0,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+            "paddingTop": 20,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "flex": 1,
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "bottom": 0,
+                  "left": 0,
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                },
+                Object {
+                  "flexDirection": "row",
+                },
+              ]
+            }
+          >
+            <View
+              collapsable={undefined}
+              pointerEvents="box-none"
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "bottom": 0,
+                  "justifyContent": "center",
+                  "left": 0,
+                  "opacity": 1,
+                  "position": "absolute",
+                  "right": 0,
+                  "top": 0,
+                  "transform": Array [
+                    Object {
+                      "translateX": 0,
+                    },
+                  ],
+                }
+              }
+            >
+              <Text
+                accessibilityTraits="header"
+                accessible={true}
+                allowFontScaling={true}
+                collapsable={undefined}
+                ellipsizeMode="tail"
+                numberOfLines={1}
+                onLayout={[Function]}
+                style={
+                  Object {
+                    "color": "rgba(0, 0, 0, .9)",
+                    "fontSize": 17,
+                    "fontWeight": "600",
+                    "marginHorizontal": 16,
+                    "textAlign": "center",
+                  }
+                }
+              >
+                Add Articles
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;

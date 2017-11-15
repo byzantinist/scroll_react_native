@@ -69,18 +69,17 @@ export default class ScrollContents extends Component {
       styles.square,
       {
         transform: this.state.pan.getTranslateTransform(),
-        padding: 15,
+        padding: 20,
         marginTop: height/2,
-        color: '#444'
+        color: 'black'
       }
     ];
   }
 
   onLayoutFigureOutHeight(event) {
-    var {y, width, x, height} = event.nativeEvent.layout;
+    var {scroll} = event.nativeEvent.layout;
     console.log("FFFFFFFF")
-    console.log(width)
-    console.log(height)
+    console.log(scroll)
   }
 
   renderItem() {
@@ -110,10 +109,47 @@ export default class ScrollContents extends Component {
 
           <View style={styles.container} onLayout={ this.onLayoutFigureOutHeight } >
         <Animated.Text style={this.getStyle()}>
+              <Card style={styles.card}>
+                <CardItem>
+                  <Text style={styles.textStyle}>Charlie really likes kittens!</Text>
+                </CardItem>
+                <CardItem>
+                  <Image style={styles.image} source={{uri: "https://static.boredpanda.com/blog/wp-content/uploads/2016/08/cute-kittens-29-57b30ad229af3__605.jpg"}}
+                  />
+                </CardItem>
+                <CardItem>
+                  <Text style={styles.textStyle}>They are much better than silly goldendoodles!</Text>
+                </CardItem>
+              </Card>
+
+              <Card style={styles.card}>
+                <CardItem>
+                  <Text style={styles.textStyle}>Ruby is a Red Panda who eats bamboo and Sour Patch Kids</Text>
+                </CardItem>
+                <CardItem>
+                  <Image style={styles.image} source={{uri: "https://i.ytimg.com/vi/b6dT4kyVUuY/maxresdefault.jpg"}}
+                  />
+                </CardItem>
+                <CardItem>
+                  <Text style={styles.textStyle}>Item description</Text>
+                </CardItem>
+              </Card>
+
+              <Card style={styles.card}>
+                <CardItem>
+                  <Text style={styles.textStyle}>Ruby is also a master assassin who will eliminate all of your enemies for the right price!</Text>
+                </CardItem>
+                <CardItem>
+                  <Image style={styles.image} source={{uri: "https://i.pinimg.com/736x/e4/a0/43/e4a043311adecfe96ef70416687a3ed7--pandas-playing-too-cute.jpg"}} />
+                </CardItem>
+                <CardItem>
+                  <Text style={styles.textStyle}>Item description</Text>
+                </CardItem>
+              </Card>
 
               {this.renderItem()}
 
-        </Animated.Text>
+            </Animated.Text>
 
        </View>
 
@@ -145,6 +181,10 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 28,
   },
+  image: {
+    flex:1,
+    height: 300
+  },
   paragraph: {
     padding: 5,
     fontSize: 16,
@@ -155,10 +195,79 @@ const styles = StyleSheet.create({
     height: 5000,
     backgroundColor: 'white'
   },
+  textStyle: {
+    fontSize: 21,
+  },
   title: {
     padding: 5,
     fontSize: 28,
     textAlign: 'center',
     margin: 10,
   }
+});
+
+
+
+import React, { Component } from 'react';
+import { Card, CardItem } from 'native-base';
+import { Dimensions, Image, StyleSheet, Text, View } from 'react-native';
+
+var {
+  width,
+  height
+} = Dimensions.get('window');
+
+export default class InfiniteScroll extends Component {
+  constructor(props) {
+    super(props);
+
+    this.recordData = props.record.content;
+  }
+
+  render() {
+    return (
+      <Card style={styles.card}>
+        <View>
+        <CardItem>
+          <Text style={styles.title}>{this.recordData.title}</Text>
+        </CardItem>
+        <CardItem>
+    <Text> {console.log(this.recordData.height)}</Text>
+          <Text style={styles.title}>{this.recordData.height}</Text>
+        </CardItem>
+        <CardItem>
+          <View>{this.recordData.body.map((para, index) =>
+            <View key={index}>
+              <Text style={styles.paragraph}>{para}</Text>
+            </View>)}
+          </View>
+        </CardItem>
+        <CardItem>
+          <Image style={styles.image} source={{uri: "https://i.ytimg.com/vi/b6dT4kyVUuY/maxresdefault.jpg"}} />
+        </CardItem>
+        </View>
+      </Card>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  card: {
+    marginBottom: 30,
+    height: height,
+    width: width
+  },
+  image: {
+    flex:1,
+    height: 300
+  },
+  paragraph: {
+    margin: 10,
+    fontSize: 21,
+  },
+  title: {
+    fontSize: 28,
+    textAlign: 'center',
+    margin: 10,
+  },
 });

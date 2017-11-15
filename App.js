@@ -3,8 +3,9 @@ import { View, Text } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 import ListArticles from './components/listarticles';
-import ScrollScreen from './components/scrollscreen';
+import NewScroll from './components/newscroll';
 import UrlForm from './components/urlform';
+
 
 export default class App extends React.Component {
   render() {
@@ -17,5 +18,5 @@ export default class App extends React.Component {
 export const ScrollApp = StackNavigator({
   UrlForm: { screen: UrlForm },
   ListArticles: { screen: ListArticles },
-  Scroll: { screen: ScrollScreen },
+  NewScroll: { screen: NewScroll },
 });

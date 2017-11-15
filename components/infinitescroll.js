@@ -16,27 +16,14 @@ export default class InfiniteScroll extends Component {
 
   render() {
     return (
-      <Card style={styles.card}>
-        <View>
-        <CardItem>
+      <View style={styles.card}>
+        <View style={styles.newsArticle}>
           <Text style={styles.title}>{this.recordData.title}</Text>
-        </CardItem>
-        <CardItem>
-    <Text> {console.log(this.recordData.height)}</Text>
-          <Text style={styles.title}>{this.recordData.height}</Text>
-        </CardItem>
-        <CardItem>
           <View>{this.recordData.body.map((para, index) =>
-            <View key={index}>
-              <Text style={styles.paragraph}>{para}</Text>
-            </View>)}
+            <Text style={styles.paragraph}>{para}</Text>)}
           </View>
-        </CardItem>
-        <CardItem>
-          <Image style={styles.image} source={{uri: "https://i.ytimg.com/vi/b6dT4kyVUuY/maxresdefault.jpg"}} />
-        </CardItem>
         </View>
-      </Card>
+      </View>
     );
   }
 }

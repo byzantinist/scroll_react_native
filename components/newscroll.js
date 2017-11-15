@@ -56,7 +56,6 @@ export default class NewScroll extends Component {
         transform: this.state.pan.getTranslateTransform(),
         padding: 15,
         marginTop: height/2,
-        color: '#444'
       }
     ];
   }
@@ -72,10 +71,10 @@ export default class NewScroll extends Component {
     let scrollData = (
       <Animated.View style={this.getStyle()}>
         {this.state.scroll.map((article) =>
-          <View style={styles.newsArticle}>
+          <View style={styles.newsArticle} key={article.id}>
             <Text style={styles.title}>{article.title}</Text>
-             <View>{article.body.map((para) =>
-               <Text style={styles.paragraph}>{para}</Text>)}
+             <View>{article.body.map((para, index) =>
+               <Text style={styles.paragraph} key={index}>{para}</Text>)}
             </View>
           </View>)
         }

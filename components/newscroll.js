@@ -44,7 +44,7 @@ export default class NewScroll extends Component {
   triggerAnimation(cb) {
     Animated.sequence([
       Animated.timing(this.state.pan, {
-      duration: 300000,
+      duration: this.state.duration,
       easing: Easing.linear,
       toValue: {x: 0, y: -5000}
       }),
@@ -85,17 +85,23 @@ export default class NewScroll extends Component {
       <Container>
       <Header style={styles.header}>
         <TouchableOpacity style={styles.speedButton} onPress={() => {
-              alert("SLOW!");
-              }
-            }>
+            var newSpeed = this.state.pan.y._animation._toValue * 0.9;
+            console.log(this.state.pan.y._animation._toValue);
+            this.state.pan.y._animation._toValue = newSpeed;
+            console.log(this.state.pan.y._animation._toValue);
+          }
+        }>
           <Text>{this.state.duration}</Text>
         </TouchableOpacity>
         <Container>
         </Container>
         <TouchableOpacity style={styles.speedButton} onPress={() => {
-              console.log(this.state.duration);
-              }
-            }>
+            var newSpeed = this.state.pan.y._animation._toValue * 1.1;
+            console.log(this.state.pan.y._animation._toValue);
+            this.state.pan.y._animation._toValue = newSpeed;
+            console.log(this.state.pan.y._animation._toValue);
+          }
+        }>
           <Text>Red Panda is BACK!</Text>
         </TouchableOpacity>
       </Header>

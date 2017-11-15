@@ -38,17 +38,16 @@ export default class ListArticles extends Component {
         <View style={styles.cardView}>
         <CardItem style={styles.articleTitle}>
           <Text style={styles.articleTitleText}>{article.title}</Text>
-        </CardItem>
-        <CardItem>
           <TouchableOpacity style={styles.deleteButton} onPress={() => {
               this.setState({deletion_id: article.id});
               this.deleteArticle()
               }
             }>
-            <Text style={styles.deleteButtonText}>Delete</Text>
+            <Text style={styles.deleteButtonText}>🗑️</Text>
           </TouchableOpacity>
         </CardItem>
         </View>
+
       </Card>)
 
     return (
@@ -56,7 +55,7 @@ export default class ListArticles extends Component {
         <View>
           <ScrollView>
             <TouchableOpacity style={styles.button} onPress={() => navigate('NewScroll')}>
-              <Text style={styles.buttonText}>Start SkRrrrrollin</Text>
+              <Text style={styles.buttonText}>Start Scroll</Text>
             </TouchableOpacity>
             {thisScroll}
             <TouchableOpacity style={styles.button} onPress={this.clearArticles}>
@@ -102,10 +101,10 @@ export default class ListArticles extends Component {
 
   deleteArticle = () => {
     Alert.alert(
-      'Are you sure you want to delete this article?',
+      'Are you sure you want to remove this article?',
       'Please confirm!',
       [
-        {text: 'Delete This Article', onPress: () => {
+        {text: 'Remove This Article', onPress: () => {
           var deletion_url = 'https://desolate-oasis-97513.herokuapp.com/scrollios/1/articles/' + this.state.deletion_id;
           fetch(deletion_url, {
               method: 'DELETE',
@@ -137,54 +136,50 @@ export default class ListArticles extends Component {
 const width = Dimensions.get('window').width;
 const styles = StyleSheet.create({
   articleTitle: {
-    width: (width / 2)
+    flex: 1,
+    backgroundColor: 'rgb(222, 228, 237)',
   },
   articleTitleText: {
-    fontSize: 20,
+    width: width/1.3,
+    fontSize: 18,
   },
   button: {
     alignSelf: 'stretch',
-    // doesn not work with pure text need to textAlign
     alignItems: 'center',
-    // textAlign: 'center',
     padding: 20,
-    backgroundColor: '#59cbbd',
-    marginTop: 20,
-    marginBottom: 20,
+    backgroundColor: 'rgba(222, 228, 237, 0.7)',
+    margin: 30,
+    borderRadius: 10,
   },
   buttonText: {
-    color: '#fff',
-    fontWeight: 'bold',
+    color: 'black',
+    fontWeight: '200',
     fontSize: 28,
   },
   card: {
-    marginTop: 10,
-    marginBottom: 10,
+    padding: 0,
+    backgroundColor: '#36485f',
   },
   cardView: {
-    flexDirection: 'row',
+    padding: 0,
+    // flexDirection: 'row',
     flex: 1,
   },
   container: {
+    width: width,
     flex: 1,
     justifyContent: 'center',
     backgroundColor: '#36485f',
-    paddingLeft: 30,
-    paddingRight: 30,
   },
   deleteButton: {
+    flex: 1,
+    width: width/0.8,
+    justifyContent: 'center',
     alignSelf: 'stretch',
-    // doesn not work with pure text need to textAlign
     alignItems: 'center',
-    // textAlign: 'center',
-    padding: 20,
-    backgroundColor: '#59cbbd',
-    marginTop: 20,
-    marginBottom: 20,
   },
   deleteButtonText: {
     color: '#fff',
-    fontWeight: 'bold',
     fontSize: 20,
   }
 });

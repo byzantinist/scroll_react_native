@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Header } from 'native-base';
-import { Animated, Button, Dimensions, Easing, ScrollView, StyleSheet, Text, TouchableOpacity,View } from 'react-native';
+import { Animated, Button, Dimensions, Easing, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity,View } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 var api = {
@@ -25,12 +25,13 @@ export default class NewScroll extends Component {
   static navigationOptions = ({ navigation }) => {
       const { params = {} } = navigation.state;
       return {
-        headerRight: <Button title="Re-Read" onPress={() => params.handleSave()} />
+        headerRight: <Button title="Last Article" onPress={() => params.handleSave()} />
       };
     };
 
   _saveDetails() {
-    self.refs.autoScroll.scrollTo({x: 0, y: 0});
+    // self.refs.autoScroll.scrollTo({x: 0, y: 0});
+    self.refs.test.focus();
   }
 
   constructor(){
@@ -85,6 +86,7 @@ export default class NewScroll extends Component {
       <Animated.View style={this.getStyle()}>
         {this.state.scroll.map((article) =>
           <View style={styles.newsArticle} key={article.id}>
+            <TextInput ref="test"/>
             <Text style={styles.title}>{article.title}</Text>
              <View>{article.body.map((para, index) =>
                <Text style={styles.paragraph} key={index}>{para}</Text>)}

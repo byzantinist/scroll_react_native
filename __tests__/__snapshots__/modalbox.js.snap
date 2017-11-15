@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "backgroundColor": "#36485f",
+      "flex": 1,
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    collapsable={undefined}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "backgroundColor": "white",
+        "color": "black",
+        "height": 5000,
+        "marginTop": 667,
+        "padding": 20,
+        "transform": Array [
+          Object {
+            "translateX": 0,
+          },
+          Object {
+            "translateY": 0,
+          },
+        ],
+        "width": 750,
+      }
+    }
+  />
+</View>
+`;

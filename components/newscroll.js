@@ -56,16 +56,13 @@ export default class NewScroll extends Component {
     styles.square,
       {
         transform: this.state.pan.getTranslateTransform(),
-        marginTop: height/2,
+        marginTop: height/2.8,
       }
     ];
   }
 
   onLayoutFigureOutHeight(event) {
     var {y, width, x, height} = event.nativeEvent.layout;
-    console.log("FFFFFFFF")
-    console.log(width)
-    console.log(height)
   }
 
   render() {
@@ -83,29 +80,33 @@ export default class NewScroll extends Component {
       </Animated.View>)
     return (
       <Container>
-      <Header style={styles.header}>
-        <TouchableOpacity style={styles.speedButton} onPress={() => {
-            var newSpeed = this.state.pan.y._animation._toValue * 0.9;
-            var newOffset = this.state.pan.y._value * 0.9;
+        <Header style={styles.header}>
+
+          <TouchableOpacity style={styles.speedButton} onPress={() => {
+            var newSpeed = this.state.pan.y._animation._toValue * 0.8;
+            var newOffset = this.state.pan.y._value * 0.8;
             this.state.pan.y._animation._toValue = newSpeed;
             this.state.pan.y._offset = -1 * newOffset;
           }
-        }>
-          <Text>Panda is slow!</Text>
+          }>
+          <Text style={styles.buttonText}> 🐢</Text>
         </TouchableOpacity>
+
         <Container>
         </Container>
-        <TouchableOpacity style={styles.speedButton} onPress={() => {
-            var newSpeed = this.state.pan.y._animation._toValue * 1.1;
-            var newOffset = this.state.pan.y._value * 1.1;
+
+          <TouchableOpacity style={styles.speedButton} onPress={() => {
+            var newSpeed = this.state.pan.y._animation._toValue * 1.2;
+            var newOffset = this.state.pan.y._value * 1.2;
             this.state.pan.y._animation._toValue = newSpeed;
             this.state.pan.y._offset = -1 * newOffset;
-          }
-        }>
-          <Text>Red Panda is fast!</Text>
-        </TouchableOpacity>
-      </Header>
-      <ScrollView style={styles.container}>{scrollData}</ScrollView>
+            }
+          }>
+            <Text style={styles.buttonText}>🐇 </Text>
+          </TouchableOpacity>
+        </Header>
+
+        <ScrollView style={styles.container}>{scrollData}</ScrollView>
       </Container>
     );
   }
@@ -117,11 +118,24 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#36485f',
   },
+  square: {
+    width: width,
+    backgroundColor: '#dee4ed'
+  },
   header: {
     backgroundColor: '#36485f',
+    borderBottomWidth: 0,
   },
   newsArticle : {
     marginBottom: 30,
+  },
+  title: {
+    textAlign: 'center',
+    fontSize: 30,
+    marginBottom: 10,
+    fontWeight: 'bold',
+    color: '#222',
+    padding: 15
   },
   paragraph: {
     paddingTop: 8,
@@ -132,18 +146,9 @@ const styles = StyleSheet.create({
     color: '#222'
   },
   speedButton: {
-    backgroundColor: '#59cbbd',
+    backgroundColor: '#36485f',
   },
-  square: {
-    width: width,
-    backgroundColor: '#dee4ed'
-  },
-  title: {
-    textAlign: 'center',
-    fontSize: 30,
-    marginBottom: 10,
-    fontWeight: 'bold',
-    color: '#222',
-    padding: 15
+  buttonText: {
+    fontSize: 35,
   },
 });

@@ -25,7 +25,7 @@ export default class NewScroll extends Component {
     this.state = {
       pan: new Animated.ValueXY(),
       scroll: [],
-      duration: 300000
+      duration: 300000,
     }
   }
 
@@ -86,23 +86,23 @@ export default class NewScroll extends Component {
       <Header style={styles.header}>
         <TouchableOpacity style={styles.speedButton} onPress={() => {
             var newSpeed = this.state.pan.y._animation._toValue * 0.9;
-            console.log(this.state.pan.y._animation._toValue);
+            var newOffset = this.state.pan.y._value * 0.9;
             this.state.pan.y._animation._toValue = newSpeed;
-            console.log(this.state.pan.y._animation._toValue);
+            this.state.pan.y._offset = -1 * newOffset;
           }
         }>
-          <Text>{this.state.duration}</Text>
+          <Text>Panda is slow!</Text>
         </TouchableOpacity>
         <Container>
         </Container>
         <TouchableOpacity style={styles.speedButton} onPress={() => {
             var newSpeed = this.state.pan.y._animation._toValue * 1.1;
-            console.log(this.state.pan.y._animation._toValue);
+            var newOffset = this.state.pan.y._value * 1.1;
             this.state.pan.y._animation._toValue = newSpeed;
-            console.log(this.state.pan.y._animation._toValue);
+            this.state.pan.y._offset = -1 * newOffset;
           }
         }>
-          <Text>Red Panda is BACK!</Text>
+          <Text>Red Panda is fast!</Text>
         </TouchableOpacity>
       </Header>
       <ScrollView style={styles.container}>{scrollData}</ScrollView>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Header } from 'native-base';
-import { Animated, Dimensions, Easing, ScrollView, StyleSheet, Text, TouchableOpacity,View } from 'react-native';
+import { Animated, Button, Dimensions, Easing, ScrollView, StyleSheet, Text, TouchableOpacity,View } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 var api = {
@@ -15,10 +15,23 @@ var {
   height
 } = Dimensions.get('window');
 
+var self;
+
 export default class NewScroll extends Component {
   static navigationOptions = {
     title: 'Scroll Articles'
   };
+
+  static navigationOptions = ({ navigation }) => {
+      const { params = {} } = navigation.state;
+      return {
+        headerRight: <Button title="Re-Read" onPress={() => params.handleSave()} />
+      };
+    };
+
+  _saveDetails() {
+    self.refs.autoScroll.scrollTo({x: 0, y: 0});
+  }
 
   constructor(){
    super();
@@ -27,9 +40,11 @@ export default class NewScroll extends Component {
       scroll: [],
       duration: 300000,
     }
+    self = this;
   }
 
   componentWillMount(){
+    this.props.navigation.setParams({ handleSave: this._saveDetails });
     api.getArticles().then((response) => {
       this.setState({
         scroll: response
@@ -100,17 +115,17 @@ export default class NewScroll extends Component {
             var newOffset = this.state.pan.y._value * 1.2;
             this.state.pan.y._animation._toValue = newSpeed;
             this.state.pan.y._offset = -1 * newOffset;
+            this.refs.autoScroll.scrollToEnd();
             }
           }>
             <Text style={styles.buttonText}>🐇 </Text>
           </TouchableOpacity>
         </Header>
 
-        <ScrollView style={styles.container}>{scrollData}</ScrollView>
+        <ScrollView style={styles.container} ref="autoScroll">{scrollData}</ScrollView>
       </Container>
     );
   }
-
 }
 
 const styles = StyleSheet.create({

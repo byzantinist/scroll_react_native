@@ -27,11 +27,11 @@ export default class UrlForm extends Component {
        <View style={styles.imageview}><Image style={styles.image} source={require('../images/rain.jpg')}/></View>
         <View style={styles.overlay}>
         <View style={styles.urlform}>
-          <Text style={styles.slowyour}>Slow Your</Text>
+          <Text style={styles.slowyour}>slow your</Text>
            <Text style={styles.title}>S C R O L L</Text>
           <ScrollView  horizontal={true} style={styles.iconheader}><Image style={styles.newsicons} source={require('../images/cnn.jpg')}/><Image style={styles.newsicons} source={require('../images/NYT.jpg')}/><Image style={styles.newsicons} source={require('../images/WAPO.jpg')}/><Image style={styles.newsicons} source={require('../images/npr.png')}/><Image style={styles.newsicons} source={require('../images/atlantic.png')}/><Image style={styles.newsicons} source={require('../images/chico.png')}/><Image style={styles.newsicons} source={require('../images/Medium.jpeg')}/></ScrollView>
 
-          <TextInput ref="UrlBox" style={styles.textinput} placeholder="(Copy & Paste Article URL)"  placeholderTextColor="#fff"onChangeText={ (url) => this.setState({url}) } />
+          <TextInput ref="UrlBox" style={styles.textinput} placeholder="copy & paste article URL"  placeholderTextColor="#fff"onChangeText={ (url) => this.setState({url}) } />
           <TouchableOpacity style={styles.button} onPress={this.postArticle}>
             <Text style={styles.buttonText}>Submit Article</Text>
           </TouchableOpacity>
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
   overlay:{
     margin: 0,
     padding: 30,
-    backgroundColor: 'rgba(54, 72, 95, 0.6)',
+    backgroundColor: 'rgba(54, 72, 95, 0.7)',
     borderRadius: 10,
   },
   imageview: {
@@ -132,29 +132,45 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   textinput: {
+    fontFamily: 'Montserrat',
+    fontStyle: 'italic',
+    fontSize: 17,
     alignSelf: 'stretch',
     height: 45,
     marginBottom: 30,
     color: '#fff',
     borderBottomColor: '#f8f8f8',
     borderBottomWidth: 1,
-    fontStyle: 'italic',
     textAlign: 'center',
   },
   slowyour: {
-    textAlign: 'center',
+    // textAlign: 'center',
     fontSize: 20,
     color: '#fff',
+    fontFamily: 'Montserrat',
+    fontStyle: 'italic',
+    fontWeight: '400'
+    // fontWeight: 'bold'
   },
   title: {
     textAlign: 'center',
-    fontSize: 38,
-    color: '#fff',
-    fontWeight: '900',
+    fontSize: 44,
+    color: '#FCA658',
+    fontWeight: '300',
     paddingBottom: 10,
-    marginBottom: 40,
+    marginBottom: 20,
+    fontFamily: 'Montserrat',
+    lineHeight: 44,
   },
   urlform: {
     alignSelf: 'stretch',
   },
+  slowyourFont: {
+    fontFamily: 'Montserrat',
+    fontWeight: '200',
+  },
+  // scrollFont: {
+  //   fontFamily: 'Montserrat',
+  //   fontWeight: '400',
+  // }
 });

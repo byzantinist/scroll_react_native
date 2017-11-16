@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Alert, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Alert, StyleSheet, Text, TextInput, TouchableOpacity, View, Image, ScrollView } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 export default class UrlForm extends Component {
@@ -23,11 +23,15 @@ export default class UrlForm extends Component {
     const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
-        <View style={styles.urlform}>
-          <Text style={styles.title}>VertiScroll</Text>
-          <Text style={styles.header}>Copy & Paste Article URL:</Text>
 
-          <TextInput ref="UrlBox" style={styles.textinput} placeholder="(Enter the Article URL Here)"  placeholderTextColor="#fff"onChangeText={ (url) => this.setState({url}) } />
+       <View style={styles.imageview}><Image style={styles.image} source={require('../images/rain.jpg')}/></View>
+        <View style={styles.overlay}>
+        <View style={styles.urlform}>
+          <Text style={styles.slowyour}>slow your</Text>
+           <Text style={styles.title}>S C R O L L</Text>
+          <ScrollView  horizontal={true} style={styles.iconheader}><Image style={styles.newsicons} source={require('../images/cnn.jpg')}/><Image style={styles.newsicons} source={require('../images/NYT.jpg')}/><Image style={styles.newsicons} source={require('../images/WAPO.jpg')}/><Image style={styles.newsicons} source={require('../images/npr.png')}/><Image style={styles.newsicons} source={require('../images/atlantic.png')}/><Image style={styles.newsicons} source={require('../images/chico.png')}/><Image style={styles.newsicons} source={require('../images/Medium.jpeg')}/></ScrollView>
+
+          <TextInput ref="UrlBox" style={styles.textinput} placeholder="copy & paste article URL"  placeholderTextColor="#fff"onChangeText={ (url) => this.setState({url}) } />
           <TouchableOpacity style={styles.button} onPress={this.postArticle}>
             <Text style={styles.buttonText}>Submit Article</Text>
           </TouchableOpacity>
@@ -35,6 +39,7 @@ export default class UrlForm extends Component {
           <TouchableOpacity style={styles.button} onPress={() => navigate('ListArticles')}>
             <Text style={styles.buttonText}>View List</Text>
           </TouchableOpacity>
+        </View>
         </View>
       </View>
     );
@@ -81,50 +86,91 @@ export default class UrlForm extends Component {
 const styles = StyleSheet.create({
   button: {
     alignSelf: 'stretch',
-    // doesn not work with pure text need to textAlign
     alignItems: 'center',
-    // textAlign: 'center',
     padding: 20,
-    backgroundColor: '#59cbbd',
+    backgroundColor: 'rgba(222, 228, 237, 0.15)',
     marginTop: 30,
+    borderRadius: 10,
+  },
+  overlay:{
+    margin: 0,
+    padding: 30,
+    backgroundColor: 'rgba(54, 72, 95, 0.7)',
+    borderRadius: 10,
+  },
+  imageview: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+  },
+  image: {
+    flex: 1,
   },
   buttonText: {
-    color: '#fff',
-    fontWeight: 'bold',
+    color: 'white',
+    fontWeight: '300',
     fontSize: 28,
   },
   container: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: '#36485f',
+    backgroundColor: 'transparent',
     paddingLeft: 30,
     paddingRight: 30,
   },
-  header: {
-    textAlign: 'center',
-    fontSize: 28,
-    color: '#fff',
-    paddingBottom: 10,
-    marginBottom: 40,
+  iconheader: {
+    paddingBottom: 30,
+    marginTop: 10,
+    marginBottom: 20,
+  },
+  newsicons: {
+    margin: 3,
+    height: 50,
+    width: 50,
+    borderRadius: 10,
   },
   textinput: {
+    fontFamily: 'Montserrat',
+    fontStyle: 'italic',
+    fontSize: 17,
     alignSelf: 'stretch',
     height: 45,
     marginBottom: 30,
     color: '#fff',
     borderBottomColor: '#f8f8f8',
     borderBottomWidth: 1,
+    textAlign: 'center',
+  },
+  slowyour: {
+    // textAlign: 'center',
+    fontSize: 20,
+    color: '#fff',
+    fontFamily: 'Montserrat',
+    fontStyle: 'italic',
+    fontWeight: '400'
+    // fontWeight: 'bold'
   },
   title: {
     textAlign: 'center',
-    fontSize: 40,
-    color: '#fff',
+    fontSize: 44,
+    color: '#FCA658',
+    fontWeight: '300',
     paddingBottom: 10,
-    marginBottom: 40,
+    marginBottom: 20,
+    fontFamily: 'Montserrat',
+    lineHeight: 44,
   },
   urlform: {
     alignSelf: 'stretch',
-    borderBottomColor: '#199187',
-    borderBottomWidth: 1,
   },
+  slowyourFont: {
+    fontFamily: 'Montserrat',
+    fontWeight: '200',
+  },
+  // scrollFont: {
+  //   fontFamily: 'Montserrat',
+  //   fontWeight: '400',
+  // }
 });

@@ -13,6 +13,7 @@
 		"react-native": "0.50.3",
 		"react-native-elements": "^0.18.2",
 		"react-navigation": "^1.0.0-beta.19",
+		"rnpm": "^1.9.0",
 		"util": "^0.10.3"
 	},
 	"devDependencies": {
@@ -21,10 +22,15 @@
 		"jest": "21.2.1",
 		"react-test-renderer": "16.0.0"
 	},
+	"rnpm": {
+		"assets": [
+			"assets/fonts/Montserrat"
+		]
+	},
+
 	"jest": {
 		"preset": "react-native",
 		"transformIgnorePatterns": [ "node_modules/(?!react-native|expo|react-navigation|native-base-shoutem-theme|@shoutem/theme|@shoutem/animation|@shoutem/ui|tcomb-form-native)"
-]
+		]
 	}
 }
-

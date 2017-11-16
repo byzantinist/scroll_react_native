@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Alert, StyleSheet, Text, TextInput, TouchableOpacity, View, Image, ScrollView } from 'react-native';
+import { Alert, StyleSheet, Text, TextInput, TouchableOpacity, Linking, View, Image, ScrollView } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 export default class UrlForm extends Component {
@@ -28,8 +28,45 @@ export default class UrlForm extends Component {
         <View style={styles.overlay}>
         <View style={styles.urlform}>
           <Text style={styles.slowyour}>slow your</Text>
-           <Text style={styles.title}>S C R O L L</Text>
-          <ScrollView  horizontal={true} style={styles.iconheader}><Image style={styles.newsicons} source={require('../images/cnn.jpg')}/><Image style={styles.newsicons} source={require('../images/NYT.jpg')}/><Image style={styles.newsicons} source={require('../images/WAPO.jpg')}/><Image style={styles.newsicons} source={require('../images/npr.png')}/><Image style={styles.newsicons} source={require('../images/atlantic.png')}/><Image style={styles.newsicons} source={require('../images/chico.png')}/><Image style={styles.newsicons} source={require('../images/Medium.jpeg')}/><Image style={styles.newsicons} source={require('../images/politico.jpg')}/><Image style={styles.newsicons} source={require('../images/NewYorkerLogo.jpg')}/></ScrollView>
+          <Text style={styles.title}>S C R O L L</Text>
+
+          <ScrollView  horizontal={true} style={styles.iconheader}>
+            <TouchableOpacity onPress={() => Linking.openURL('https://www.nytimes.com/')}>
+              <Image style={styles.newsicons} source={require('../images/NYT.jpg')}/>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={() => Linking.openURL('https://www.washingtonpost.com/')}>
+              <Image style={styles.newsicons} source={require('../images/WAPO.jpg')}/>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={() => Linking.openURL('https://www.npr.org/')}>
+              <Image style={styles.newsicons} source={require('../images/npr.png')}/>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={() => Linking.openURL('http://www.chicagotribune.com/')}>
+              <Image style={styles.newsicons} source={require('../images/chico.png')}/>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={() => Linking.openURL('http://www.cnn.com/')}>
+              <Image style={styles.newsicons} source={require('../images/cnn.jpg')}/>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={() => Linking.openURL('https://www.newyorker.com/')}>
+              <Image style={styles.newsicons} source={require('../images/NewYorkerLogo.jpg')}/>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={() => Linking.openURL('https://www.politico.com/')}>
+              <Image style={styles.newsicons} source={require('../images/politico.jpg')}/>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={() => Linking.openURL('https://www.theatlantic.com/')}>
+              <Image style={styles.newsicons} source={require('../images/atlantic.png')}/>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={() => Linking.openURL('https://medium.com/')}>
+              <Image style={styles.newsicons} source={require('../images/Medium.jpeg')}/>
+            </TouchableOpacity>
+          </ScrollView>
 
           <TextInput ref="UrlBox" style={styles.textinput} placeholder="copy & paste article URL"  placeholderTextColor="#fff"onChangeText={ (url) => this.setState({url}) } />
           <TouchableOpacity style={styles.button} onPress={this.postArticle}>
@@ -123,7 +160,7 @@ const styles = StyleSheet.create({
   iconheader: {
     paddingBottom: 30,
     marginTop: 10,
-    marginBottom: 20,
+    marginBottom: 10,
   },
   newsicons: {
     margin: 3,

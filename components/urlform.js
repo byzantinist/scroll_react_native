@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
     alignItems: 'center',
     padding: 20,
-    backgroundColor: 'rgba(222, 228, 237, 0.5)',
+    backgroundColor: 'rgba(222, 228, 237, 0.15)',
     marginTop: 30,
     borderRadius: 10,
   },
@@ -109,8 +109,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   buttonText: {
-    color: 'black',
-    fontWeight: '200',
+    color: 'white',
+    fontWeight: '300',
     fontSize: 28,
   },
   container: {

@@ -50,6 +50,9 @@ export default class ScrollArticles extends Component {
       pan: new Animated.ValueXY(),
       scroll: [],
       duration: 300000,
+      pause: false,
+      oldSpeed: 0,
+      oldOffset: 0
     }
     self = this;
   }
@@ -111,23 +114,50 @@ export default class ScrollArticles extends Component {
         <Header style={styles.header}>
 
           <TouchableOpacity style={styles.speedButton} onPress={() => {
-            var newSpeed = this.state.pan.y._animation._toValue * 0.8;
-            var newOffset = this.state.pan.y._value * 0.8;
-            this.state.pan.y._animation._toValue = newSpeed;
-            this.state.pan.y._offset = -1 * newOffset;
+            if (!this.state.pause) {
+              var newSpeed = this.state.pan.y._animation._toValue * 0.8;
+              var newOffset = this.state.pan.y._value * 0.8;
+              this.state.pan.y._animation._toValue = newSpeed;
+              this.state.pan.y._offset = -1 * newOffset;
+            }
           }
           }>
           <Text style={styles.buttonText}> 🐢</Text>
         </TouchableOpacity>
 
-        <Container>
+        <Container style={styles.speedBar}>
+
+          <TouchableOpacity style={styles.speedButton} onPress={() => {
+              if (this.state.pause) {
+                  this.setState({
+                    pause: false
+                  });
+                  this.triggerAnimation();
+                  this.state.pan.y._animation._toValue = this.state.oldSpeed;
+                }
+                else {
+                  this.setState({
+                    pause: true,
+                    oldSpeed: this.state.pan.y._animation._toValue,
+                    oldOffset: this.state.pan.y._value
+                  });
+                  this.state.pan.stopAnimation(this.callback);
+                }
+              }
+          }>
+          <Text style={styles.buttonText}> ⏸️</Text>
+
+        </TouchableOpacity>
+
         </Container>
 
           <TouchableOpacity style={styles.speedButton} onPress={() => {
-            var newSpeed = this.state.pan.y._animation._toValue * 1.2;
-            var newOffset = this.state.pan.y._value * 1.2;
-            this.state.pan.y._animation._toValue = newSpeed;
-            this.state.pan.y._offset = -1 * newOffset;
+              if (!this.state.pause) {
+                var newSpeed = this.state.pan.y._animation._toValue * 1.2;
+                var newOffset = this.state.pan.y._value * 1.2;
+                this.state.pan.y._animation._toValue = newSpeed;
+                this.state.pan.y._offset = -1 * newOffset;
+              }
             }
           }>
             <Text style={styles.buttonText}>🐇 </Text>
@@ -162,6 +192,9 @@ const styles = StyleSheet.create({
     paddingRight: 20,
     fontSize: 21,
     color: '#222'
+  },
+  speedBar: {
+    alignItems: 'center',
   },
   speedButton: {
     backgroundColor: '#36485f',

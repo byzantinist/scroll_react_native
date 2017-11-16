@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Container, Header } from 'native-base';
-import { Animated, Button, Dimensions, Easing, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Animated, Button, Dimensions, Easing, Keyboard, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { StackNavigator } from 'react-navigation';
+
+Keyboard.dismiss();
 
 var api = {
   getArticles(){
@@ -37,6 +39,7 @@ export default class ScrollArticles extends Component {
       }
       var referenceName = "ref" + referenceIndex;
       self.refs[referenceName].focus();
+      Keyboard.dismiss();
       referenceIndex += 1;
     }
   }

@@ -29,7 +29,7 @@ export default class UrlForm extends Component {
         <View style={styles.urlform}>
           <Text style={styles.slowyour}>slow your</Text>
            <Text style={styles.title}>S C R O L L</Text>
-          <ScrollView  horizontal={true} style={styles.iconheader}><Image style={styles.newsicons} source={require('../images/cnn.jpg')}/><Image style={styles.newsicons} source={require('../images/NYT.jpg')}/><Image style={styles.newsicons} source={require('../images/WAPO.jpg')}/><Image style={styles.newsicons} source={require('../images/npr.png')}/><Image style={styles.newsicons} source={require('../images/atlantic.png')}/><Image style={styles.newsicons} source={require('../images/chico.png')}/><Image style={styles.newsicons} source={require('../images/Medium.jpeg')}/></ScrollView>
+          <ScrollView  horizontal={true} style={styles.iconheader}><Image style={styles.newsicons} source={require('../images/cnn.jpg')}/><Image style={styles.newsicons} source={require('../images/NYT.jpg')}/><Image style={styles.newsicons} source={require('../images/WAPO.jpg')}/><Image style={styles.newsicons} source={require('../images/npr.png')}/><Image style={styles.newsicons} source={require('../images/atlantic.png')}/><Image style={styles.newsicons} source={require('../images/chico.png')}/><Image style={styles.newsicons} source={require('../images/Medium.jpeg')}/><Image style={styles.newsicons} source={require('../images/politico.jpg')}/><Image style={styles.newsicons} source={require('../images/NewYorkerLogo.jpg')}/></ScrollView>
 
           <TextInput ref="UrlBox" style={styles.textinput} placeholder="copy & paste article URL"  placeholderTextColor="#fff"onChangeText={ (url) => this.setState({url}) } />
           <TouchableOpacity style={styles.button} onPress={this.postArticle}>
@@ -127,9 +127,10 @@ const styles = StyleSheet.create({
   },
   newsicons: {
     margin: 3,
-    height: 50,
-    width: 50,
+    height: 62,
+    width: 62,
     borderRadius: 10,
+    opacity: 0.7,
   },
   textinput: {
     fontFamily: 'Montserrat',

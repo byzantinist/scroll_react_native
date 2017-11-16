@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Header } from 'native-base';
-import { Animated, Button, Dimensions, Easing, ScrollView, StyleSheet, Text, TouchableOpacity,View } from 'react-native';
+import { Animated, Button, Dimensions, Easing, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity,View } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 var api = {
@@ -16,6 +16,7 @@ var {
 } = Dimensions.get('window');
 
 var self;
+var referenceIndex = 0;
 
 export default class NewScroll extends Component {
   static navigationOptions = {
@@ -25,12 +26,17 @@ export default class NewScroll extends Component {
   static navigationOptions = ({ navigation }) => {
       const { params = {} } = navigation.state;
       return {
-        headerRight: <Button title="Re-Read" onPress={() => params.handleSave()} />
+        headerRight: <Button title="Next Article" onPress={() => params.handleSave()} />
       };
     };
 
   _saveDetails() {
-    self.refs.autoScroll.scrollTo({x: 0, y: 0});
+    if (referenceIndex >= self.state.scroll.length) {
+      referenceIndex = 0;
+    }
+    var referenceName = "ref" + referenceIndex;
+    self.refs[referenceName].focus();
+    referenceIndex += 1;
   }
 
   constructor(){
@@ -83,8 +89,9 @@ export default class NewScroll extends Component {
   render() {
     let scrollData = (
       <Animated.View style={this.getStyle()}>
-        {this.state.scroll.map((article) =>
+        {this.state.scroll.map((article, reference) =>
           <View style={styles.newsArticle} key={article.id}>
+            <TextInput ref={"ref" + reference}/>
             <Text style={styles.title}>{article.title}</Text>
              <View>{article.body.map((para, index) =>
                <Text style={styles.paragraph} key={index}>{para}</Text>)}
@@ -115,7 +122,6 @@ export default class NewScroll extends Component {
             var newOffset = this.state.pan.y._value * 1.2;
             this.state.pan.y._animation._toValue = newSpeed;
             this.state.pan.y._offset = -1 * newOffset;
-            this.refs.autoScroll.scrollToEnd();
             }
           }>
             <Text style={styles.buttonText}>🐇 </Text>

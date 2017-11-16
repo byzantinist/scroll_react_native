@@ -4,7 +4,10 @@ import { StackNavigator } from 'react-navigation';
 
 export default class AddArticles extends Component {
   static navigationOptions = {
-    title: 'Add Articles'
+    title: 'Add Articles',
+    headerStyle: {
+      backgroundColor: 'rgba(222, 228, 237, 0.8)'
+    }
   };
 
   constructor(props) {

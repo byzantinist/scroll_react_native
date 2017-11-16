@@ -12,7 +12,10 @@ var api = {
 
 export default class ListArticles extends Component {
   static navigationOptions = {
-    title: 'List Articles'
+    title: 'List Articles',
+    headerStyle: {
+      backgroundColor: 'rgba(222, 228, 237, 0.8)'
+    }
   };
 
   constructor(props){

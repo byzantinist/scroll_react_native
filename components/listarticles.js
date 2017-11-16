@@ -14,8 +14,9 @@ export default class ListArticles extends Component {
   static navigationOptions = {
     title: 'List Articles',
     headerStyle: {
-      backgroundColor: 'rgba(222, 228, 237, 0.8)'
-    }
+      backgroundColor: '#36485f'
+    },
+    headerTintColor: 'white'
   };
 
   constructor(props){

@@ -6,8 +6,9 @@ export default class AddArticles extends Component {
   static navigationOptions = {
     title: 'Add Articles',
     headerStyle: {
-      backgroundColor: 'rgba(222, 228, 237, 0.8)'
-    }
+      backgroundColor: '#36485f'
+    },
+    headerTintColor: 'white'
   };
 
   constructor(props) {

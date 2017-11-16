@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Card, CardItem } from 'native-base';
-import { Alert, Dimensions, ScrollView, StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native';
+import { Alert, Dimensions, Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 var api = {
@@ -55,7 +55,7 @@ export default class ListArticles extends Component {
       <View style={styles.imageview}><Image style={styles.image} source={require('../images/rain.jpg')}/></View>
         <View>
           <ScrollView>
-            <TouchableOpacity style={styles.button} onPress={() => navigate('NewScroll')}>
+            <TouchableOpacity style={styles.button} onPress={() => navigate('ScrollArticles')}>
               <Text style={styles.buttonText}>Start Scroll</Text>
             </TouchableOpacity>
             {thisScroll}
@@ -182,14 +182,14 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 20,
   },
-    imageview: {
+  image: {
+    flex: 1,
+  },
+  imageview: {
     position: 'absolute',
     top: 0,
     left: 0,
     width: '100%',
     height: '100%',
-  },
-  image: {
-    flex: 1,
   },
 });

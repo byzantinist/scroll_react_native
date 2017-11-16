@@ -16,6 +16,7 @@ var {
 } = Dimensions.get('window');
 
 var self;
+var referenceIndex = 0;
 
 export default class NewScroll extends Component {
   static navigationOptions = {
@@ -25,13 +26,17 @@ export default class NewScroll extends Component {
   static navigationOptions = ({ navigation }) => {
       const { params = {} } = navigation.state;
       return {
-        headerRight: <Button title="Last Article" onPress={() => params.handleSave()} />
+        headerRight: <Button title="Next Article" onPress={() => params.handleSave()} />
       };
     };
 
   _saveDetails() {
-    // self.refs.autoScroll.scrollTo({x: 0, y: 0});
-    self.refs.test.focus();
+    if (referenceIndex >= (self.state.scroll.length - 1)) {
+      referenceIndex = 0;
+    }
+    var referenceName = "ref" + referenceIndex;
+    self.refs[referenceName].focus();
+    referenceIndex += 1;
   }
 
   constructor(){
@@ -84,9 +89,9 @@ export default class NewScroll extends Component {
   render() {
     let scrollData = (
       <Animated.View style={this.getStyle()}>
-        {this.state.scroll.map((article) =>
+        {this.state.scroll.map((article, reference) =>
           <View style={styles.newsArticle} key={article.id}>
-            <TextInput ref="test"/>
+            <TextInput ref={"ref" + reference}/>
             <Text style={styles.title}>{article.title}</Text>
              <View>{article.body.map((para, index) =>
                <Text style={styles.paragraph} key={index}>{para}</Text>)}

@@ -11,6 +11,7 @@
 		"native-base": "^2.3.3",
 		"react": "16.0.0",
 		"react-native": "0.50.3",
+		"react-native-display": "^1.0.8",
 		"react-native-elements": "^0.18.2",
 		"react-navigation": "^1.0.0-beta.19",
 		"rnpm": "^1.9.0",
@@ -27,10 +28,10 @@
 			"assets/fonts/Montserrat"
 		]
 	},
-
 	"jest": {
 		"preset": "react-native",
-		"transformIgnorePatterns": [ "node_modules/(?!react-native|expo|react-navigation|native-base-shoutem-theme|@shoutem/theme|@shoutem/animation|@shoutem/ui|tcomb-form-native)"
+		"transformIgnorePatterns": [
+			"node_modules/(?!react-native|expo|react-navigation|native-base-shoutem-theme|@shoutem/theme|@shoutem/animation|@shoutem/ui|tcomb-form-native)"
 		]
 	}
 }

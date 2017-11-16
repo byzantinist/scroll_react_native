@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Header } from 'native-base';
 import { Animated, Button, Dimensions, Easing, Keyboard, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import Display from 'react-native-display';
 import { StackNavigator } from 'react-navigation';
 
 Keyboard.dismiss();
@@ -52,7 +53,8 @@ export default class ScrollArticles extends Component {
       duration: 300000,
       pause: false,
       oldSpeed: 0,
-      oldOffset: 0
+      pauseEnable: true,
+      playEnable: false
     }
     self = this;
   }
@@ -130,7 +132,9 @@ export default class ScrollArticles extends Component {
           <TouchableOpacity style={styles.speedButton} onPress={() => {
               if (this.state.pause) {
                   this.setState({
-                    pause: false
+                    pause: false,
+                    pauseEnable: true,
+                    playEnable: false
                   });
                   this.triggerAnimation();
                   this.state.pan.y._animation._toValue = this.state.oldSpeed;
@@ -139,13 +143,19 @@ export default class ScrollArticles extends Component {
                   this.setState({
                     pause: true,
                     oldSpeed: this.state.pan.y._animation._toValue,
-                    oldOffset: this.state.pan.y._value
+                    pauseEnable: false,
+                    playEnable: true
                   });
                   this.state.pan.stopAnimation(this.callback);
                 }
               }
           }>
-          <Text style={styles.buttonText}> ⏸️</Text>
+          <Display enable={this.state.pauseEnable}>
+            <Text style={styles.buttonText}> ⏸️</Text>
+          </Display>
+          <Display enable={this.state.playEnable}>
+            <Text style={styles.buttonText}> ▶️</Text>
+          </Display>
 
         </TouchableOpacity>
 

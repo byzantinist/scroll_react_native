@@ -21,13 +21,13 @@ var self;
 var referenceIndex = 1;
 
 export default class ScrollArticles extends Component {
-  static navigationOptions = {
-    title: 'Scroll Articles'
-  };
-
   static navigationOptions = ({ navigation }) => {
       const { params = {} } = navigation.state;
       return {
+        title: 'Scroll Articles',
+        headerStyle: {
+          backgroundColor: 'rgba(222, 228, 237, 0.8)'
+        },
         headerRight: <Button title="Next Article" onPress={() => params.handleNext()} />
       };
     };
@@ -55,9 +55,8 @@ export default class ScrollArticles extends Component {
   }
 
   componentWillMount(){
-    if (self.state.scroll != null) {
-      this.props.navigation.setParams({ handleNext: this._nextArticle });
-    };
+    this.props.navigation.setParams({ handleNext: this._nextArticle });
+
     api.getArticles().then((response) => {
       this.setState({
         scroll: response

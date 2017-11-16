@@ -31,12 +31,14 @@ export default class ScrollArticles extends Component {
     };
 
   _nextArticle() {
-    if (referenceIndex >= self.state.scroll.length) {
-      referenceIndex = 0;
+    if (self.state.scroll.length > 0) {
+      if (referenceIndex >= self.state.scroll.length) {
+        referenceIndex = 0;
+      }
+      var referenceName = "ref" + referenceIndex;
+      self.refs[referenceName].focus();
+      referenceIndex += 1;
     }
-    var referenceName = "ref" + referenceIndex;
-    self.refs[referenceName].focus();
-    referenceIndex += 1;
   }
 
   constructor(){
@@ -50,7 +52,7 @@ export default class ScrollArticles extends Component {
   }
 
   componentWillMount(){
-    if (self.state.scroll != undefined) {
+    if (self.state.scroll != null) {
       this.props.navigation.setParams({ handleNext: this._nextArticle });
     };
     api.getArticles().then((response) => {

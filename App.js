@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
+import AddArticles from './components/addarticles';
 import ListArticles from './components/listarticles';
-import NewScroll from './components/newscroll';
-import UrlForm from './components/urlform';
-
+import ScrollArticles from './components/scrollARTICLES';
 
 export default class App extends React.Component {
   render() {
@@ -16,7 +14,7 @@ export default class App extends React.Component {
 }
 
 export const ScrollApp = StackNavigator({
-  UrlForm: { screen: UrlForm },
+  AddArticles: { screen: AddArticles },
   ListArticles: { screen: ListArticles },
-  NewScroll: { screen: NewScroll },
+  ScrollArticles: { screen: ScrollArticles },
 });

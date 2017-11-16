@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Header } from 'native-base';
-import { Animated, Button, Dimensions, Easing, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity,View } from 'react-native';
+import { Animated, Button, Dimensions, Easing, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 var api = {
@@ -16,9 +16,9 @@ var {
 } = Dimensions.get('window');
 
 var self;
-var referenceIndex = 0;
+var referenceIndex = 1;
 
-export default class NewScroll extends Component {
+export default class ScrollArticles extends Component {
   static navigationOptions = {
     title: 'Scroll Articles'
   };
@@ -26,11 +26,13 @@ export default class NewScroll extends Component {
   static navigationOptions = ({ navigation }) => {
       const { params = {} } = navigation.state;
       return {
-        headerRight: <Button title="Next Article" onPress={() => params.handleSave()} />
+        headerRight: <Button title="Next Article" onPress={() => params.handleNext()} />
       };
     };
 
-  _saveDetails() {
+  _nextArticle() {
+    console.log("TEST!");
+
     if (referenceIndex >= self.state.scroll.length) {
       referenceIndex = 0;
     }
@@ -50,7 +52,7 @@ export default class NewScroll extends Component {
   }
 
   componentWillMount(){
-    this.props.navigation.setParams({ handleSave: this._saveDetails });
+    this.props.navigation.setParams({ handleNext: this._nextArticle });
     api.getArticles().then((response) => {
       this.setState({
         scroll: response
@@ -135,13 +137,12 @@ export default class NewScroll extends Component {
 }
 
 const styles = StyleSheet.create({
+  buttonText: {
+    fontSize: 35,
+  },
   container: {
     flex: 1,
     backgroundColor: '#36485f',
-  },
-  square: {
-    width: width,
-    backgroundColor: '#dee4ed'
   },
   header: {
     backgroundColor: '#36485f',
@@ -149,14 +150,6 @@ const styles = StyleSheet.create({
   },
   newsArticle : {
     marginBottom: 30,
-  },
-  title: {
-    textAlign: 'center',
-    fontSize: 30,
-    marginBottom: 10,
-    fontWeight: 'bold',
-    color: '#222',
-    padding: 15
   },
   paragraph: {
     paddingTop: 8,
@@ -169,7 +162,16 @@ const styles = StyleSheet.create({
   speedButton: {
     backgroundColor: '#36485f',
   },
-  buttonText: {
-    fontSize: 35,
+  square: {
+    width: width,
+    backgroundColor: '#dee4ed'
+  },
+  title: {
+    textAlign: 'center',
+    fontSize: 30,
+    marginBottom: 10,
+    fontWeight: 'bold',
+    color: '#222',
+    padding: 15
   },
 });

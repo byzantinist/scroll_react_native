@@ -31,7 +31,7 @@ export default class NewScroll extends Component {
     };
 
   _saveDetails() {
-    if (referenceIndex >= (self.state.scroll.length - 1)) {
+    if (referenceIndex >= self.state.scroll.length) {
       referenceIndex = 0;
     }
     var referenceName = "ref" + referenceIndex;
@@ -122,7 +122,6 @@ export default class NewScroll extends Component {
             var newOffset = this.state.pan.y._value * 1.2;
             this.state.pan.y._animation._toValue = newSpeed;
             this.state.pan.y._offset = -1 * newOffset;
-            this.refs.autoScroll.scrollToEnd();
             }
           }>
             <Text style={styles.buttonText}>🐇 </Text>

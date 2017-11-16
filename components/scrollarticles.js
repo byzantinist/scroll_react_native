@@ -55,9 +55,8 @@ export default class ScrollArticles extends Component {
   }
 
   componentWillMount(){
-    if (self.state.scroll != null) {
-      this.props.navigation.setParams({ handleNext: this._nextArticle });
-    };
+    this.props.navigation.setParams({ handleNext: this._nextArticle });
+
     api.getArticles().then((response) => {
       this.setState({
         scroll: response

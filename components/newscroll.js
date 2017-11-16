@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Animated, Dimensions, Easing, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Container, Header } from 'native-base';
+import { Animated, Button, Dimensions, Easing, ScrollView, StyleSheet, Text, TouchableOpacity,View } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 var api = {
@@ -14,20 +15,36 @@ var {
   height
 } = Dimensions.get('window');
 
+var self;
+
 export default class NewScroll extends Component {
   static navigationOptions = {
     title: 'Scroll Articles'
   };
 
+  static navigationOptions = ({ navigation }) => {
+      const { params = {} } = navigation.state;
+      return {
+        headerRight: <Button title="Re-Read" onPress={() => params.handleSave()} />
+      };
+    };
+
+  _saveDetails() {
+    self.refs.autoScroll.scrollTo({x: 0, y: 0});
+  }
+
   constructor(){
    super();
     this.state = {
       pan: new Animated.ValueXY(),
-      scroll: []
+      scroll: [],
+      duration: 300000,
     }
+    self = this;
   }
 
   componentWillMount(){
+    this.props.navigation.setParams({ handleSave: this._saveDetails });
     api.getArticles().then((response) => {
       this.setState({
         scroll: response
@@ -42,7 +59,7 @@ export default class NewScroll extends Component {
   triggerAnimation(cb) {
     Animated.sequence([
       Animated.timing(this.state.pan, {
-      duration: 300000,
+      duration: this.state.duration,
       easing: Easing.linear,
       toValue: {x: 0, y: -5000}
       }),
@@ -54,16 +71,13 @@ export default class NewScroll extends Component {
     styles.square,
       {
         transform: this.state.pan.getTranslateTransform(),
-        marginTop: height/2,
+        marginTop: height/2.8,
       }
     ];
   }
 
   onLayoutFigureOutHeight(event) {
     var {y, width, x, height} = event.nativeEvent.layout;
-    console.log("FFFFFFFF")
-    console.log(width)
-    console.log(height)
   }
 
   render() {
@@ -80,10 +94,38 @@ export default class NewScroll extends Component {
         }
       </Animated.View>)
     return (
-      <ScrollView style={styles.container}>{scrollData}</ScrollView>
+      <Container>
+        <Header style={styles.header}>
+
+          <TouchableOpacity style={styles.speedButton} onPress={() => {
+            var newSpeed = this.state.pan.y._animation._toValue * 0.8;
+            var newOffset = this.state.pan.y._value * 0.8;
+            this.state.pan.y._animation._toValue = newSpeed;
+            this.state.pan.y._offset = -1 * newOffset;
+          }
+          }>
+          <Text style={styles.buttonText}> 🐢</Text>
+        </TouchableOpacity>
+
+        <Container>
+        </Container>
+
+          <TouchableOpacity style={styles.speedButton} onPress={() => {
+            var newSpeed = this.state.pan.y._animation._toValue * 1.2;
+            var newOffset = this.state.pan.y._value * 1.2;
+            this.state.pan.y._animation._toValue = newSpeed;
+            this.state.pan.y._offset = -1 * newOffset;
+            this.refs.autoScroll.scrollToEnd();
+            }
+          }>
+            <Text style={styles.buttonText}>🐇 </Text>
+          </TouchableOpacity>
+        </Header>
+
+        <ScrollView style={styles.container} ref="autoScroll">{scrollData}</ScrollView>
+      </Container>
     );
   }
-
 }
 
 const styles = StyleSheet.create({
@@ -91,8 +133,24 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#36485f',
   },
+  square: {
+    width: width,
+    backgroundColor: '#dee4ed'
+  },
+  header: {
+    backgroundColor: '#36485f',
+    borderBottomWidth: 0,
+  },
   newsArticle : {
     marginBottom: 30,
+  },
+  title: {
+    textAlign: 'center',
+    fontSize: 30,
+    marginBottom: 10,
+    fontWeight: 'bold',
+    color: '#222',
+    padding: 15
   },
   paragraph: {
     paddingTop: 8,
@@ -102,16 +160,10 @@ const styles = StyleSheet.create({
     fontSize: 21,
     color: '#222'
   },
-  square: {
-    width: width,
-    backgroundColor: '#dee4ed'
+  speedButton: {
+    backgroundColor: '#36485f',
   },
-  title: {
-    textAlign: 'center',
-    fontSize: 30,
-    marginBottom: 10,
-    fontWeight: 'bold',
-    color: '#222',
-    padding: 15
+  buttonText: {
+    fontSize: 35,
   },
 });

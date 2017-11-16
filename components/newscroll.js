@@ -16,7 +16,7 @@ var {
 } = Dimensions.get('window');
 
 var self;
-var referenceIndex = 0;
+var referenceIndex = 1;
 
 export default class NewScroll extends Component {
   static navigationOptions = {
@@ -35,7 +35,12 @@ export default class NewScroll extends Component {
       referenceIndex = 0;
     }
     var referenceName = "ref" + referenceIndex;
-    self.refs[referenceName].focus();
+    if (self.state.scroll == []) {
+      alert("test");
+    }
+    else {
+      self.refs[referenceName].focus();
+    }
     referenceIndex += 1;
   }
 

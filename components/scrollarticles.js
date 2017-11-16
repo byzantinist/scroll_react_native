@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Container, Header } from 'native-base';
-import { Animated, Button, Dimensions, Easing, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Animated, Button, Dimensions, Easing, Keyboard, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { StackNavigator } from 'react-navigation';
+
+Keyboard.dismiss();
 
 var api = {
   getArticles(){
@@ -31,14 +33,15 @@ export default class ScrollArticles extends Component {
     };
 
   _nextArticle() {
-    console.log("TEST!");
-
-    if (referenceIndex >= self.state.scroll.length) {
-      referenceIndex = 0;
+    if (self.state.scroll.length > 0) {
+      if (referenceIndex >= self.state.scroll.length) {
+        referenceIndex = 0;
+      }
+      var referenceName = "ref" + referenceIndex;
+      self.refs[referenceName].focus();
+      Keyboard.dismiss();
+      referenceIndex += 1;
     }
-    var referenceName = "ref" + referenceIndex;
-    self.refs[referenceName].focus();
-    referenceIndex += 1;
   }
 
   constructor(){
@@ -52,7 +55,9 @@ export default class ScrollArticles extends Component {
   }
 
   componentWillMount(){
-    this.props.navigation.setParams({ handleNext: this._nextArticle });
+    if (self.state.scroll != null) {
+      this.props.navigation.setParams({ handleNext: this._nextArticle });
+    };
     api.getArticles().then((response) => {
       this.setState({
         scroll: response

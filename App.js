@@ -3,7 +3,7 @@ import { StackNavigator } from 'react-navigation';
 
 import AddArticles from './components/addarticles';
 import ListArticles from './components/listarticles';
-import ScrollArticles from './components/scrollARTICLES';
+import ScrollArticles from './components/scrollarticles';
 
 export default class App extends React.Component {
   render() {

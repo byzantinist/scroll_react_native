@@ -31,8 +31,6 @@ export default class ScrollArticles extends Component {
     };
 
   _nextArticle() {
-    console.log("TEST!");
-
     if (referenceIndex >= self.state.scroll.length) {
       referenceIndex = 0;
     }
@@ -52,7 +50,9 @@ export default class ScrollArticles extends Component {
   }
 
   componentWillMount(){
-    this.props.navigation.setParams({ handleNext: this._nextArticle });
+    if (self.state.scroll != undefined) {
+      this.props.navigation.setParams({ handleNext: this._nextArticle });
+    };
     api.getArticles().then((response) => {
       this.setState({
         scroll: response

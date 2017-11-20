@@ -3,12 +3,14 @@ import { Container, Header } from 'native-base';
 import { Animated, Button, Dimensions, Easing, Keyboard, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import Display from 'react-native-display';
 import { StackNavigator } from 'react-navigation';
+import DeviceInfo from 'react-native-device-info';
+const deviceIdentifier = DeviceInfo.getUniqueID();
 
 Keyboard.dismiss();
 
 var api = {
   getArticles(){
-    var url = 'https://desolate-oasis-97513.herokuapp.com/scrollios/1'
+    var url = `https://desolate-oasis-97513.herokuapp.com/scrollios/${deviceIdentifier}`
     return fetch(url).then((response) => response.json());
   }
 };

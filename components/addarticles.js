@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Alert, Image, Linking, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { StackNavigator } from 'react-navigation';
+import DeviceInfo from 'react-native-device-info';
+const deviceIdentifier = DeviceInfo.getUniqueID();
+
 
 export default class AddArticles extends Component {
   static navigationOptions = {
@@ -15,6 +18,7 @@ export default class AddArticles extends Component {
     super(props);
     this.state = {
       url: ''
+
     }
     this.baseState = this.state
   }
@@ -90,7 +94,7 @@ export default class AddArticles extends Component {
       var statusCode;
       this.refs.UrlBox.setNativeProps({text: ''});
       this.setState({url: ''})
-      fetch('https://desolate-oasis-97513.herokuapp.com/scrollios/1/articles', {
+      fetch(`https://desolate-oasis-97513.herokuapp.com/scrollios/${deviceIdentifier}/articles`, {
         method: 'POST',
         headers: {
           'Accept' : 'application/json',

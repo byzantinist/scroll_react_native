@@ -10,7 +10,7 @@ Keyboard.dismiss();
 
 var api = {
   getArticles(){
-    var url = `https://nameless-chamber-28643.herokuapp.com/scrollios/${deviceIdentifier}`
+    var url = `https://desolate-oasis-97513.herokuapp.com/scrollios/${deviceIdentifier}`
     return fetch(url).then((response) => response.json());
   }
 };

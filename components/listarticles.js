@@ -7,7 +7,7 @@ const deviceIdentifier = DeviceInfo.getUniqueID();
 
 var api = {
   getArticles(){
-    var url = `https://nameless-chamber-28643.herokuapp.com/scrollios/${deviceIdentifier}`
+    var url = `https://desolate-oasis-97513.herokuapp.com/scrollios/${deviceIdentifier}`
     return fetch(url).then((response) => response.json());
   }
 };
@@ -80,7 +80,7 @@ export default class ListArticles extends Component {
       'Please confirm!',
       [
         {text: 'Clear All Articles', onPress: () => {
-          fetch(`https://nameless-chamber-28643.herokuapp.com/scrollios/${deviceIdentifier}`, {
+          fetch(`https://desolate-oasis-97513.herokuapp.com/scrollios/${deviceIdentifier}`, {
               method: 'DELETE',
               headers: {
                 'Accept' : 'application/json',
@@ -111,7 +111,7 @@ export default class ListArticles extends Component {
       'Please confirm!',
       [
         {text: 'Remove This Article', onPress: () => {
-          var deletion_url = `https://nameless-chamber-28643.herokuapp.com/scrollios/${deviceIdentifier}/articles/` + this.state.deletion_id;
+          var deletion_url = `https://desolate-oasis-97513.herokuapp.com/scrollios/${deviceIdentifier}/articles/` + this.state.deletion_id;
           fetch(deletion_url, {
               method: 'DELETE',
               headers: {

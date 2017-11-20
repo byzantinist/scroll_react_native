@@ -94,7 +94,7 @@ export default class AddArticles extends Component {
       var statusCode;
       this.refs.UrlBox.setNativeProps({text: ''});
       this.setState({url: ''})
-      fetch(`https://nameless-chamber-28643.herokuapp.com/scrollios/${deviceIdentifier}/articles`, {
+      fetch(`https://desolate-oasis-97513.herokuapp.com/scrollios/${deviceIdentifier}/articles`, {
         method: 'POST',
         headers: {
           'Accept' : 'application/json',

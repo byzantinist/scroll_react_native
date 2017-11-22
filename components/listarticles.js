@@ -58,7 +58,7 @@ export default class ListArticles extends Component {
 
     return (
       <View style={styles.container}>
-      <View style={styles.imageview}><Image style={styles.image} source={require('../images/rain.jpg')}/></View>
+      <View style={styles.imageview}><Image style={styles.image} source={require('../images/rains.jpg')}/></View>
         <View>
           <ScrollView>
             <TouchableOpacity style={styles.button} onPress={() => navigate('ScrollArticles')}>

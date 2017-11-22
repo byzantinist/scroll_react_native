@@ -32,7 +32,7 @@ export default class AddArticles extends Component {
     return (
       <View style={styles.container}>
 
-        <View style={styles.imageview}><Image style={styles.image} source={require('../images/rain.jpg')}/></View>
+        <View style={styles.imageview}><Image resizeMode='cover' style={styles.image} source={require('../images/rains.jpg')}/></View>
         <View style={styles.overlay}>
           <View style={styles.urlform}>
             <Text style={styles.slowyour}>slow your</Text>
@@ -158,10 +158,10 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   imageview: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: '100%',
+      position: 'absolute',
+      top: 0,
+      left: 0,
+    // width: '100%',
     height: '100%',
   },
   newsicons: {
